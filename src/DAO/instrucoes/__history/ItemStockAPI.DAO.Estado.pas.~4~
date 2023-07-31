@@ -1,0 +1,39 @@
+unit ItemStockAPI.DAO.Estado;
+
+interface
+
+uses
+  ItemStockAPI.DAO.Interfaces,
+  ItemStockAPI.Model.Estado;
+
+type
+  TDEstado = class(TInterfacedObject, IDEstado)
+  private
+    FInstance: TMEstado;
+  public
+    constructor Create(aObject: TMEstado);
+    destructor Destroy; override;
+    procedure ObterEstados;
+  end;
+
+implementation
+
+{ TDEstado }
+
+constructor TDEstado.Create(aObject: TMEstado);
+begin
+  FInstance := aObject;
+end;
+
+destructor TDEstado.Destroy;
+begin
+
+  inherited;
+end;
+
+procedure TDEstado.ObterEstados;
+begin
+
+end;
+
+end.

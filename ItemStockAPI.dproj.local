@@ -17,6 +17,21 @@
     <Transaction>2023/07/31 09:47:34.467,D:\Progamação\Projects\Extended\ItemStockV3.1\Project\API\src\DTO\ItemStockAPI.DTO.Interfaces.pas=D:\Progamação\Projects\Extended\ItemStockV3.1\Project\API\Unit1.pas</Transaction>
     <Transaction>2023/07/31 09:55:49.595,=D:\Progamação\Projects\Extended\ItemStockV3.1\Project\API\Unit1.pas</Transaction>
     <Transaction>2023/07/31 09:57:23.010,D:\Progamação\Projects\Extended\ItemStockV3.1\Project\API\src\DTO\ItemStockAPI.DTO.ItemFoto.pas=D:\Progamação\Projects\Extended\ItemStockV3.1\Project\API\Unit1.pas</Transaction>
+    <Transaction>2023/07/31 10:05:45.373,=D:\Progamação\Projects\Extended\ItemStockV3.1\Project\API\Unit1.pas</Transaction>
+    <Transaction>2023/07/31 10:06:21.883,D:\Progamação\Projects\Extended\ItemStockV3.1\Project\API\src\DTO\ItemStockAPI.DTO.Categoria.pas=D:\Progamação\Projects\Extended\ItemStockV3.1\Project\API\Unit1.pas</Transaction>
+    <Transaction>2023/07/31 10:43:41.576,=D:\Progamação\Projects\Extended\ItemStockV3.1\Project\API\Unit1.pas</Transaction>
+    <Transaction>2023/07/31 10:45:39.393,D:\Progamação\Projects\Extended\ItemStockV3.1\Project\API\src\DTO\ItemStockAPI.DTO.Container.pas=D:\Progamação\Projects\Extended\ItemStockV3.1\Project\API\Unit1.pas</Transaction>
+    <Transaction>2023/07/31 10:50:55.661,=D:\Progamação\Projects\Extended\ItemStockV3.1\Project\API\Unit1.pas</Transaction>
+    <Transaction>2023/07/31 10:51:19.188,D:\Progamação\Projects\Extended\ItemStockV3.1\Project\API\src\DTO\ItemStockAPI.DTO.Estado.pas=D:\Progamação\Projects\Extended\ItemStockV3.1\Project\API\Unit1.pas</Transaction>
+    <Transaction>2023/07/31 14:14:19.052,=D:\Progamação\Projects\Extended\ItemStockV3.1\Project\API\Unit1.pas</Transaction>
+    <Transaction>2023/07/31 14:21:03.994,D:\Progamação\Projects\Extended\ItemStockV3.1\Project\API\src\DAO\instrucoes\ItemStockAPI.DAO.Estado.pas=D:\Progamação\Projects\Extended\ItemStockV3.1\Project\API\Unit1.pas</Transaction>
+    <Transaction>2023/07/31 14:21:10.120,=D:\Progamação\Projects\Extended\ItemStockV3.1\Project\API\Unit1.pas</Transaction>
+    <Transaction>2023/07/31 14:22:41.984,=D:\Progamação\Projects\Extended\ItemStockV3.1\Project\API\Unit1.pas</Transaction>
+    <Transaction>2023/07/31 14:24:01.998,=D:\Progamação\Projects\Extended\ItemStockV3.1\Project\API\Unit2.pas</Transaction>
+    <Transaction>2023/07/31 14:24:37.728,D:\Progamação\Projects\Extended\ItemStockV3.1\Project\API\src\Model\ItemStockAPI.Model.Interfaces.pas=D:\Progamação\Projects\Extended\ItemStockV3.1\Project\API\Unit2.pas</Transaction>
+    <Transaction>2023/07/31 14:25:21.372,D:\Progamação\Projects\Extended\ItemStockV3.1\Project\API\src\Model\ItemStockAPI.Model.Estado.pas=D:\Progamação\Projects\Extended\ItemStockV3.1\Project\API\Unit1.pas</Transaction>
+    <Transaction>2023/07/31 14:27:47.829,=D:\Progamação\Projects\Extended\ItemStockV3.1\Project\API\Unit1.pas</Transaction>
+    <Transaction>2023/07/31 14:30:29.989,D:\Progamação\Projects\Extended\ItemStockV3.1\Project\API\src\Controller\ItemStockAPI.Controller.Estado.pas=D:\Progamação\Projects\Extended\ItemStockV3.1\Project\API\Unit1.pas</Transaction>
   </Transactions>  <ProjectSortOrder AutoSort="0" SortType="0">
     <File Path="src"/>
     <File Path="src\DAO"/>
@@ -24,9 +39,19 @@
     <File Path="src\DAO\conexao\ItemStockAPI.DAO.Conexao.pas"/>
     <File Path="src\DAO\conexao\ItemStockAPI.DAO.Query.pas"/>
     <File Path="src\DAO\ItemStockAPI.DAO.Interfaces.pas"/>
+    <File Path="src\DAO\instrucoes"/>
+    <File Path="src\DAO\instrucoes\ItemStockAPI.DAO.Estado.pas"/>
     <File Path="src\DTO"/>
     <File Path="src\DTO\ItemStockAPI.DTO.Item.pas"/>
     <File Path="src\DTO\ItemStockAPI.DTO.Interfaces.pas"/>
     <File Path="src\DTO\ItemStockAPI.DTO.ItemFoto.pas"/>
+    <File Path="src\DTO\ItemStockAPI.DTO.Categoria.pas"/>
+    <File Path="src\DTO\ItemStockAPI.DTO.Container.pas"/>
+    <File Path="src\DTO\ItemStockAPI.DTO.Estado.pas"/>
+    <File Path="src\Model"/>
+    <File Path="src\Model\ItemStockAPI.Model.Interfaces.pas"/>
+    <File Path="src\Model\ItemStockAPI.Model.Estado.pas"/>
+    <File Path="src\Controller"/>
+    <File Path="src\Controller\ItemStockAPI.Controller.Estado.pas"/>
   </ProjectSortOrder>
 </BorlandProject>

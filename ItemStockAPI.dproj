@@ -186,6 +186,13 @@
         <DCCReference Include="src\DTO\ItemStockAPI.DTO.Item.pas"/>
         <DCCReference Include="src\DTO\ItemStockAPI.DTO.Interfaces.pas"/>
         <DCCReference Include="src\DTO\ItemStockAPI.DTO.ItemFoto.pas"/>
+        <DCCReference Include="src\DTO\ItemStockAPI.DTO.Categoria.pas"/>
+        <DCCReference Include="src\DTO\ItemStockAPI.DTO.Container.pas"/>
+        <DCCReference Include="src\DTO\ItemStockAPI.DTO.Estado.pas"/>
+        <DCCReference Include="src\DAO\instrucoes\ItemStockAPI.DAO.Estado.pas"/>
+        <DCCReference Include="src\Model\ItemStockAPI.Model.Estado.pas"/>
+        <DCCReference Include="src\Model\ItemStockAPI.Model.Interfaces.pas"/>
+        <DCCReference Include="src\Controller\ItemStockAPI.Controller.Estado.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

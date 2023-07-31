@@ -14,11 +14,7 @@ uses
   ItemStockAPI.DTO.ItemFoto in 'src\DTO\ItemStockAPI.DTO.ItemFoto.pas',
   ItemStockAPI.DTO.Categoria in 'src\DTO\ItemStockAPI.DTO.Categoria.pas',
   ItemStockAPI.DTO.Container in 'src\DTO\ItemStockAPI.DTO.Container.pas',
-  ItemStockAPI.DTO.Estado in 'src\DTO\ItemStockAPI.DTO.Estado.pas',
-  ItemStockAPI.DAO.Estado in 'src\DAO\instrucoes\ItemStockAPI.DAO.Estado.pas',
-  ItemStockAPI.Model.Estado in 'src\Model\ItemStockAPI.Model.Estado.pas',
-  ItemStockAPI.Model.Interfaces in 'src\Model\ItemStockAPI.Model.Interfaces.pas',
-  ItemStockAPI.Controller.Estado in 'src\Controller\ItemStockAPI.Controller.Estado.pas';
+  ItemStockAPI.DTO.Estado in 'src\DTO\ItemStockAPI.DTO.Estado.pas';
 
 begin
   try
