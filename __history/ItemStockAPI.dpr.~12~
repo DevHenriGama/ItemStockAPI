@@ -6,6 +6,7 @@ program ItemStockAPI;
 
 uses
   Horse,
+  Dataset.Serialize,
   Horse.OctetStream,
   Horse.Compression,
   Horse.Logger,
@@ -24,8 +25,7 @@ uses
   ItemStockAPI.Model.Estado in 'src\Model\ItemStockAPI.Model.Estado.pas',
   ItemStockAPI.Model.Interfaces in 'src\Model\ItemStockAPI.Model.Interfaces.pas',
   ItemStockAPI.Controller.Estado in 'src\Controller\ItemStockAPI.Controller.Estado.pas',
-  ItemStockAPI.Controller.Interfaces in 'src\Controller\ItemStockAPI.Controller.Interfaces.pas',
-  ItemStockAPI.Routes.Estado in 'src\Routes\ItemStockAPI.Routes.Estado.pas';
+  ItemStockAPI.Controller.Interfaces in 'src\Controller\ItemStockAPI.Controller.Interfaces.pas';
 
 begin
 

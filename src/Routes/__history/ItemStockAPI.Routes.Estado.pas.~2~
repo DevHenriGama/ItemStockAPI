@@ -1,0 +1,30 @@
+unit ItemStockAPI.Routes.Estado;
+
+interface
+
+  type
+
+  TRoutesEstado = class
+
+  public
+    class procedure New;
+  end;
+
+implementation
+
+uses
+  Horse;
+
+{ TRoutesEstado }
+
+procedure onObterEstados;
+begin
+
+end;
+
+class procedure TRoutesEstado.New;
+begin
+ THorse.Group.Prefix('/estado').Get('',onObterEstado);
+end;
+
+end.

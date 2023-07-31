@@ -6,6 +6,7 @@ program ItemStockAPI;
 
 uses
   Horse,
+  Dataset.Serialize,
   Horse.OctetStream,
   Horse.Compression,
   Horse.Logger,

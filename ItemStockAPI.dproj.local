@@ -34,6 +34,8 @@
     <Transaction>2023/07/31 14:30:29.000.989,D:\Progamação\Projects\Extended\ItemStockV3.1\Project\API\Unit1.pas=D:\Progamação\Projects\Extended\ItemStockV3.1\Project\API\src\Controller\ItemStockAPI.Controller.Estado.pas</Transaction>
     <Transaction>2023/07/31 14:30:42.000.451,=D:\Progamação\Projects\Extended\ItemStockV3.1\Project\API\Unit1.pas</Transaction>
     <Transaction>2023/07/31 14:31:08.000.166,D:\Progamação\Projects\Extended\ItemStockV3.1\Project\API\Unit1.pas=D:\Progamação\Projects\Extended\ItemStockV3.1\Project\API\src\Controller\ItemStockAPI.Controller.Interfaces.pas</Transaction>
+    <Transaction>2023/07/31 14:51:50.000.408,=D:\Progamação\Projects\Extended\ItemStockV3.1\Project\API\Unit1.pas</Transaction>
+    <Transaction>2023/07/31 14:54:33.000.927,D:\Progamação\Projects\Extended\ItemStockV3.1\Project\API\Unit1.pas=D:\Progamação\Projects\Extended\ItemStockV3.1\Project\API\src\Routes\ItemStockAPI.Routes.Estado.pas</Transaction>
   </Transactions>
 	<ProjectSortOrder AutoSort="0" SortType="0">
     <File Path="src"/>
@@ -57,5 +59,7 @@
     <File Path="src\Model"/>
     <File Path="src\Model\ItemStockAPI.Model.Interfaces.pas"/>
     <File Path="src\Model\ItemStockAPI.Model.Estado.pas"/>
+    <File Path="src\Routes"/>
+    <File Path="src\Routes\ItemStockAPI.Routes.Estado.pas"/>
   </ProjectSortOrder>
 </BorlandProject>
