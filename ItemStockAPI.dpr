@@ -5,7 +5,10 @@ program ItemStockAPI;
 {$R *.res}
 
 uses
-  System.SysUtils;
+  System.SysUtils,
+  ItemStockAPI.DAO.Conexao in 'src\DAO\conexao\ItemStockAPI.DAO.Conexao.pas',
+  ItemStockAPI.DAO.Query in 'src\DAO\conexao\ItemStockAPI.DAO.Query.pas',
+  ItemStockAPI.DAO.Interfaces in 'src\DAO\ItemStockAPI.DAO.Interfaces.pas';
 
 begin
   try

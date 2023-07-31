@@ -1,0 +1,50 @@
+unit ConstrutoraDuarte.DAO.Query;
+
+interface
+
+uses
+  ConstrutoraDuarte.DAO.Interfaces, FireDAC.Comp.Client;
+
+type
+  TQuery = class(TInterfacedObject, IQuery)
+  private
+
+  public
+    class function New: IQuery;
+    constructor Create;
+    destructor Destroy; override;
+    function ExecutarQuery(aSQL: String): TFDQuery;
+    function ObterQuery: TFDQuery;
+  end;
+
+implementation
+
+{ TQuery }
+
+constructor TQuery.Create;
+begin
+
+end;
+
+destructor TQuery.Destroy;
+begin
+
+  inherited;
+end;
+
+function TQuery.ExecutarQuery(aSQL: String): TFDQuery;
+begin
+
+end;
+
+class function TQuery.New: IQuery;
+begin
+  Result := TQuery.Create;
+end;
+
+function TQuery.ObterQuery: TFDQuery;
+begin
+
+end;
+
+end.
