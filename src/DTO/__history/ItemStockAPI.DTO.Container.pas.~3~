@@ -1,0 +1,49 @@
+unit ItemStockAPI.DTO.Container;
+
+interface
+
+uses
+  ItemStockAPI.DTO.Interfaces, Data.DB;
+
+type
+  TContainerDTO = class(TInterfacedObject, IContainerDTO)
+  private
+    FID: Integer;
+    FNumero: Integer;
+    FDescricao: String;
+    FData: TDataset;
+  public
+    class function New: IContainerDTO;
+    constructor Create;
+    destructor Destroy; override;
+    function ID(aID: Integer): IContainerDTO; overload;
+    function ID: Integer; overload;
+    function Numero(aNumero: Integer): IContainerDTO; overload;
+    function Numero: Integer; overload;
+    function Descricao(aDescricao: String): IContainerDTO; overload;
+    function Descricao: String; overload;
+    function ID(aID: Integer): IContainerDTO; overload;
+    function ID: Integer; overload;
+  end;
+
+implementation
+
+{ TContainerDTO }
+
+constructor TContainerDTO.Create;
+begin
+
+end;
+
+destructor TContainerDTO.Destroy;
+begin
+
+  inherited;
+end;
+
+class function TContainerDTO.New: IContainerDTO;
+begin
+  Result := TContainerDTO.Create;
+end;
+
+end.

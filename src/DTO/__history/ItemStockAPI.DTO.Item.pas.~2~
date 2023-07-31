@@ -1,0 +1,38 @@
+unit ItemStockAPI.DTO.Item;
+
+interface
+
+uses
+  ItemStockAPI.DTO.Interfaces;
+
+type
+  TItemDTO = class(TInterfacedObject, IItemDTO)
+  private
+
+  public
+    class function New: IItemDTO;
+    constructor Create;
+    destructor Destroy; override;
+  end;
+
+implementation
+
+{ TItemDTO }
+
+constructor TItemDTO.Create;
+begin
+
+end;
+
+destructor TItemDTO.Destroy;
+begin
+
+  inherited;
+end;
+
+class function TItemDTO.New: IItemDTO;
+begin
+  Result := TItemDTO.Create;
+end;
+
+end.

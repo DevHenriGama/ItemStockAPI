@@ -1,0 +1,52 @@
+unit ItemStockAPI.DTO.ItemFoto;
+
+interface
+
+uses
+  ItemStockAPI.DTO.Interfaces, System.Classes, Data.DB;
+
+type
+  TItemFotoDTO = class(TInterfacedObject, IItemFotoDTO)
+  private
+    FID: Integer;
+    FFotoPath: String;
+    FFotoStream: TStream;
+    FIDItem: Integer;
+    FData: TDataset;
+  public
+    class function New: IItemFotoDTO;
+    constructor Create;
+    destructor Destroy; override;
+    function ID(aID: Integer): IItemFotoDTO; overload;
+    function ID: Integer; overload;
+    function Path(aPath: String): IItemFotoDTO; overload;
+    function Path: String; overload;
+    function Stream(aStream: TStream): IItemFotoDTO; overload;
+    function Stream: TStream; overload;
+    function IDItem(aID: Integer): IItemFotoDTO; overload;
+    function IDItem: Integer; overload;
+    function Data(aData: TDataset): IItemFotoDTO; overload;
+    function Data: TDataset; overload;
+  end;
+
+implementation
+
+{ TItemFotoDTO }
+
+constructor TItemFotoDTO.Create;
+begin
+
+end;
+
+destructor TItemFotoDTO.Destroy;
+begin
+
+  inherited;
+end;
+
+class function TItemFotoDTO.New: IItemFotoDTO;
+begin
+  Result := TItemFotoDTO.Create;
+end;
+
+end.

@@ -1,0 +1,59 @@
+unit ItemStockAPI.DTO.Item;
+
+interface
+
+uses
+  ItemStockAPI.DTO.Interfaces, Data.DB;
+
+type
+  TItemDTO = class(TInterfacedObject, IItemDTO)
+  private
+    FID: Integer;
+    FUUID: String;
+    FNome: String;
+    FIDContainer: Integer;
+    FIDEstado: Integer;
+    FDescricao: String;
+    FData: TDataSet;
+  public
+    class function New: IItemDTO;
+    constructor Create;
+    destructor Destroy; override;
+    function ID(aID: Integer): IItemDTO; overload;
+    function ID: Integer; overload;
+    function UUID(aUUID: String): IItemDTO; overload;
+    function UUID: String; overload;
+    function Nome(aNome: String): IItemDTO; overload;
+    function Nome: String; overload;
+    function IDContainer(aID: Integer): IItemDTO; overload;
+    function IDContainer: Integer; overload;
+    function IDEstado(aID: Integer): IItemDTO; overload;
+    function IDEstado: Integer; overload;
+    function Descricao(aDescricao: String): IItemDTO; overload;
+    function Descricao: String; overload;
+    function Data(aDescricao: TDataSet): IItemDTO; overload;
+    function Data: TDataSet; overload;
+    function Deserialize(aJSON : String) : IItemDTO;
+  end;
+
+implementation
+
+{ TItemDTO }
+
+constructor TItemDTO.Create;
+begin
+
+end;
+
+destructor TItemDTO.Destroy;
+begin
+
+  inherited;
+end;
+
+class function TItemDTO.New: IItemDTO;
+begin
+  Result := TItemDTO.Create;
+end;
+
+end.

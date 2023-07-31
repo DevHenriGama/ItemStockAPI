@@ -1,0 +1,68 @@
+unit ItemStockAPI.DTO.Interfaces;
+
+interface
+
+uses
+  Data.DB, System.Classes;
+
+type
+  IItemDTO = interface
+    ['{C765D09A-AEC0-4F4C-957D-9DE0BD4C0D62}']
+    function ID(aID: Integer): IItemDTO; overload;
+    function ID: Integer; overload;
+    function UUID(aUUID: String): IItemDTO; overload;
+    function UUID: String; overload;
+    function Nome(aNome: String): IItemDTO; overload;
+    function Nome: String; overload;
+    function IDContainer(aID: Integer): IItemDTO; overload;
+    function IDContainer: Integer; overload;
+    function IDEstado(aID: Integer): IItemDTO; overload;
+    function IDEstado: Integer; overload;
+    function Descricao(aDescricao: String): IItemDTO; overload;
+    function Descricao: String; overload;
+    function Data(aDescricao: TDataSet): IItemDTO; overload;
+    function Data: TDataSet; overload;
+    function Deserialize(aJSON: String): IItemDTO;
+  end;
+
+  IItemFotoDTO = interface
+    ['{C1F49088-DF6F-4AF2-9371-87837258E4E8}']
+    function ID(aID: Integer): IItemFotoDTO; overload;
+    function ID: Integer; overload;
+    function Path(aPath: String): IItemFotoDTO; overload;
+    function Path: String; overload;
+    function Stream(aStream: TStream): IItemFotoDTO; overload;
+    function Stream: TStream; overload;
+    function IDItem(aID: Integer): IItemFotoDTO; overload;
+    function IDItem: Integer; overload;
+    function Data(aData: TDataSet): IItemFotoDTO; overload;
+    function Data: TDataSet; overload;
+  end;
+
+  ICategoriaDTO = interface
+    ['{EDABD265-8A2E-4AC9-A0DD-E288277B6A96}']
+    function ID(aID: Integer): ICategoriaDTO; overload;
+    function ID: Integer; overload;
+    function Categoria(aCategoria: String): ICategoriaDTO; overload;
+    function Categoria: String; overload;
+    function Descricao(aDescricao: String): ICategoriaDTO; overload;
+    function Descricao: String; overload;
+    function Data(aData: TDataSet): ICategoriaDTO; overload;
+    function Data: TDataSet; overload;
+  end;
+
+  IContainerDTO = interface
+    ['{4C3268E2-37AA-4D8E-8D2C-7948AC5A1AB1}']
+    function ID(aID: Integer): IContainerDTO; overload;
+    function ID: Integer; overload;
+    function Numero(aNumero: Integer): IContainerDTO; overload;
+    function Numero: Integer; overload;
+    function Descricao(aDescricao: String): IContainerDTO; overload;
+    function Descricao: String; overload;
+    function Data(aData: TDataSet): IContainerDTO; overload;
+    function Data: TDataSet; overload;
+  end;
+
+implementation
+
+end.

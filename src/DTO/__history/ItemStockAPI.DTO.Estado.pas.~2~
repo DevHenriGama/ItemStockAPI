@@ -1,0 +1,35 @@
+unit ItemStockAPI.DTO.Estado;
+
+interface
+
+type
+TEstadoDTO = class(TInterfacedObject,IEstadoDTO)
+  private
+
+  public
+  class function New : IEstadoDTO;
+  constructor Create;
+  destructor Destroy;override;
+end;
+
+implementation
+
+{ TEstadoDTO }
+
+constructor TEstadoDTO.Create;
+begin
+
+end;
+
+destructor TEstadoDTO.Destroy;
+begin
+
+  inherited;
+end;
+
+class function TEstadoDTO.New: IEstadoDTO;
+begin
+  Result := TEstadoDTO.Create;
+end;
+
+end.

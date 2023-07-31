@@ -1,0 +1,93 @@
+unit ItemStockAPI.DTO.Categoria;
+
+interface
+
+uses
+  ItemStockAPI.DTO.Interfaces, Data.DB;
+
+type
+  TCategoriaDTO = class(TInterfacedObject, ICategoriaDTO)
+  private
+    FID: Integer;
+    FCategoria: String;
+    FDescricao: String;
+    FData: TDataset;
+  public
+    class function New: ICategoriaDTO;
+    constructor Create;
+    destructor Destroy; override;
+    function ID(aID: Integer): ICategoriaDTO; overload;
+    function ID: Integer; overload;
+    function Categoria(aCategoria: String): ICategoriaDTO; overload;
+    function Categoria: String; overload;
+    function Descricao(aDescricao: String): ICategoriaDTO; overload;
+    function Descricao: String; overload;
+    function Data(aData: TDataSet): ICategoriaDTO; overload;
+    function Data: TDataSet; overload;
+  end;
+
+implementation
+
+{ TCategoriaDTO }
+
+function TCategoriaDTO.Categoria: String;
+begin
+Result := FCategoria;
+end;
+
+function TCategoriaDTO.Categoria(aCategoria: String): ICategoriaDTO;
+begin
+Result := Self;
+FCategoria := aCategoria;
+end;
+
+constructor TCategoriaDTO.Create;
+begin
+   FData := TDataSet.Create(nil);
+end;
+
+function TCategoriaDTO.Data: TDataSet;
+begin
+Result := FData;
+end;
+
+function TCategoriaDTO.Data(aData: TDataSet): ICategoriaDTO;
+begin
+Result := Self;
+FData := aData;
+end;
+
+function TCategoriaDTO.Descricao: String;
+begin
+Result := FDescricao;
+end;
+
+function TCategoriaDTO.Descricao(aDescricao: String): ICategoriaDTO;
+begin
+Result := Self;
+FDescricao := aDescricao;
+end;
+
+destructor TCategoriaDTO.Destroy;
+begin
+  FData.Free;
+  inherited;
+end;
+
+function TCategoriaDTO.ID(aID: Integer): ICategoriaDTO;
+begin
+ Result := Self;
+ FID := aID;
+end;
+
+function TCategoriaDTO.ID: Integer;
+begin
+Result := FID;
+end;
+
+class function TCategoriaDTO.New: ICategoriaDTO;
+begin
+  Result := TCategoriaDTO.Create;
+end;
+
+end.

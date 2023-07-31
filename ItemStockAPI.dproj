@@ -183,6 +183,9 @@
         <DCCReference Include="src\DAO\conexao\ItemStockAPI.DAO.Conexao.pas"/>
         <DCCReference Include="src\DAO\conexao\ItemStockAPI.DAO.Query.pas"/>
         <DCCReference Include="src\DAO\ItemStockAPI.DAO.Interfaces.pas"/>
+        <DCCReference Include="src\DTO\ItemStockAPI.DTO.Item.pas"/>
+        <DCCReference Include="src\DTO\ItemStockAPI.DTO.Interfaces.pas"/>
+        <DCCReference Include="src\DTO\ItemStockAPI.DTO.ItemFoto.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
