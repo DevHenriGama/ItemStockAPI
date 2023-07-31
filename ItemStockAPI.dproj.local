@@ -11,5 +11,12 @@
     <Transaction>2023/07/31 09:08:17.981,D:\Progamação\Projects\Extended\ItemStockV3.1\Project\API\src\DAO\conexao\ItemStockAPI.DAO.Query.pas=D:\Progamação\Projects\Extended\ItemStockV3.1\Project\API\src\DAO\conexao\ConstrutoraDuarte.DAO.Query.pas</Transaction>
     <Transaction>2023/07/31 09:08:25.173,=D:\Progamação\Projects\Extended\ItemStockV3.1\Project\API\Unit1.pas</Transaction>
     <Transaction>2023/07/31 09:09:45.213,D:\Progamação\Projects\Extended\ItemStockV3.1\Project\API\src\DAO\ItemStockAPI.DAO.Interfaces.pas=D:\Progamação\Projects\Extended\ItemStockV3.1\Project\API\Unit1.pas</Transaction>
-  </Transactions>
+  </Transactions>  <ProjectSortOrder AutoSort="0" SortType="0">
+    <File Path="src"/>
+    <File Path="src\DAO"/>
+    <File Path="src\DAO\conexao"/>
+    <File Path="src\DAO\conexao\ItemStockAPI.DAO.Conexao.pas"/>
+    <File Path="src\DAO\conexao\ItemStockAPI.DAO.Query.pas"/>
+    <File Path="src\DAO\ItemStockAPI.DAO.Interfaces.pas"/>
+  </ProjectSortOrder>
 </BorlandProject>
