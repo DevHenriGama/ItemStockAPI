@@ -18,8 +18,7 @@ uses
   ItemStockAPI.DAO.Estado in 'src\DAO\instrucoes\ItemStockAPI.DAO.Estado.pas',
   ItemStockAPI.Model.Estado in 'src\Model\ItemStockAPI.Model.Estado.pas',
   ItemStockAPI.Model.Interfaces in 'src\Model\ItemStockAPI.Model.Interfaces.pas',
-  ItemStockAPI.Controller.Estado in 'src\Controller\ItemStockAPI.Controller.Estado.pas',
-  ItemStockAPI.Controller.Interfaces in 'src\Controller\ItemStockAPI.Controller.Interfaces.pas';
+  ItemStockAPI.Controller.Estado in 'src\Controller\ItemStockAPI.Controller.Estado.pas';
 
 begin
   try
