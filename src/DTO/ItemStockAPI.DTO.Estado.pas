@@ -39,7 +39,7 @@ end;
 
 destructor TEstadoDTO.Destroy;
 begin
- FData.Free;
+
   inherited;
 end;
 

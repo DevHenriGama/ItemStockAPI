@@ -29,4 +29,14 @@ uses
 
 begin
 
+  THorse.Use(Compression());
+  THorse.Use(Jhonson);
+  THorse.Use(OctetStream);
+
+  TRoutesEstado.Routes;
+
+  THorse.Listen(6564,procedure
+  begin
+    Writeln('ItemStockAPI Inicializada na porta 6564');
+  end);
 end.
