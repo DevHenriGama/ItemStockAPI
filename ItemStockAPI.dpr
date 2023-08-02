@@ -31,7 +31,11 @@ uses
   ItemStockAPI.Model.Container in 'src\Model\ItemStockAPI.Model.Container.pas',
   ItemStockAPI.DAO.Container in 'src\DAO\instrucoes\ItemStockAPI.DAO.Container.pas',
   ItemStockAPI.Model.PublicID in 'src\Model\Sistema\ItemStockAPI.Model.PublicID.pas',
-  ItemStockAPI.Routes.Container in 'src\Routes\ItemStockAPI.Routes.Container.pas';
+  ItemStockAPI.Routes.Container in 'src\Routes\ItemStockAPI.Routes.Container.pas',
+  ItemStockAPI.DTO.ItemCategoria in 'src\DTO\ItemStockAPI.DTO.ItemCategoria.pas',
+  ItemStockAPI.Controller.ItemCategoria in 'src\Controller\ItemStockAPI.Controller.ItemCategoria.pas',
+  ItemStockAPI.Model.ItemCategoria in 'src\Model\ItemStockAPI.Model.ItemCategoria.pas',
+  ItemStockAPI.DAO.ItemCategoria in 'src\DAO\instrucoes\ItemStockAPI.DAO.ItemCategoria.pas';
 
 begin
 

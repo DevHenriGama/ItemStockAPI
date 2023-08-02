@@ -15,7 +15,12 @@ type
     procedure Deletar;
     procedure ObterDadosContainer(aUUID: String);
     procedure ObterTodos;
-    function ObterNumContainer : Integer;
+    function ObterNumContainer: Integer;
+  end;
+
+  ICItemCategoria = interface
+    ['{AF125119-6F29-431E-87F0-B8D6E94E49F9}']
+  procedure Adicionar;
   end;
 
 implementation

@@ -1,0 +1,35 @@
+unit ItemStockAPI.Controller.ItemCategoria;
+
+interface
+
+type
+  TCItemCategoria = class(TInterfacedObject, ICItemCategoria)
+  private
+
+  public
+    class function New(aObject: IItemCategoriaDTO): ICItemCategoria;
+    constructor Create(aObject: IItemCategoriaDTO);
+    destructor Destroy; override;
+  end;
+
+implementation
+
+{ TCItemCategoria }
+
+constructor TCItemCategoria.Create(aObject: IItemCategoriaDTO);
+begin
+  FInstance := aObject;
+end;
+
+destructor TCItemCategoria.Destroy;
+begin
+
+  inherited;
+end;
+
+class function TCItemCategoria.New(aObject: IItemCategoriaDTO): ICItemCategoria;
+begin
+  Result := TCItemCategoria.Create(aObject);
+end;
+
+end.

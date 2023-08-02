@@ -74,6 +74,14 @@ type
     function Data: TDataSet; overload;
   end;
 
+  IItemCategoriaDTO = interface
+    ['{D4B6110C-F4B4-442D-B664-28B157EC0E6B}']
+    function IDItem(aID: Integer): IItemCategoriaDTO; overload;
+    function IDItem: Integer; overload;
+    function IDCategoria(aID: Integer): IItemCategoriaDTO; overload;
+    function IDCategoria: Integer; overload;
+  end;
+
 implementation
 
 end.

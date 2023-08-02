@@ -1,0 +1,33 @@
+unit ItemStockAPI.Model.ItemCategoria;
+
+interface
+
+uses
+  ItemStockAPI.DTO.Interfaces, ItemStockAPI.Model.Interfaces;
+
+type
+TMItemCategoria = class(TInterfacedObject,IMItemCategoria)
+  private
+    FInstance : IItemCategoriaDTO;
+  public
+  constructor Create(aObject : IItemCategoriaDTO);
+  destructor Destroy;override;
+end;
+
+implementation
+
+{ TMItemCategoria }
+
+constructor TMItemCategoria.Create(aObject: IItemCategoriaDTO);
+begin
+ FInstance := aObject;
+end;
+
+destructor TMItemCategoria.Destroy;
+begin
+
+  inherited;
+end;
+
+
+end.

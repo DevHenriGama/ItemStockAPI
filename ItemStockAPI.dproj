@@ -200,6 +200,10 @@
         <DCCReference Include="src\DAO\instrucoes\ItemStockAPI.DAO.Container.pas"/>
         <DCCReference Include="src\Model\Sistema\ItemStockAPI.Model.PublicID.pas"/>
         <DCCReference Include="src\Routes\ItemStockAPI.Routes.Container.pas"/>
+        <DCCReference Include="src\DTO\ItemStockAPI.DTO.ItemCategoria.pas"/>
+        <DCCReference Include="src\Controller\ItemStockAPI.Controller.ItemCategoria.pas"/>
+        <DCCReference Include="src\Model\ItemStockAPI.Model.ItemCategoria.pas"/>
+        <DCCReference Include="src\DAO\instrucoes\ItemStockAPI.DAO.ItemCategoria.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

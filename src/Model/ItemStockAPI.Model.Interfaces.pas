@@ -24,6 +24,11 @@ type
     function ObterNumContainer: Integer;
   end;
 
+  IMItemCategoria = interface
+    ['{ABD26003-1A6A-43AD-B406-3CD730345559}']
+     procedure Adicionar;
+  end;
+
 implementation
 
 end.

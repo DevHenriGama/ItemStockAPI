@@ -31,7 +31,12 @@ type
     procedure Deletar;
     procedure ObterDadosContainer(aUUID: String);
     procedure ObterTodos;
-    function ObterNumContainer : Integer;
+    function ObterNumContainer: Integer;
+  end;
+
+  IDItemCategoria = interface
+    ['{63345207-B03F-451F-88A9-BA128C1E6184}']
+    procedure Adicionar;
   end;
 
 implementation
