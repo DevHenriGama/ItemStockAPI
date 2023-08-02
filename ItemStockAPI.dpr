@@ -38,7 +38,8 @@ uses
   ItemStockAPI.DAO.ItemCategoria in 'src\DAO\instrucoes\ItemStockAPI.DAO.ItemCategoria.pas',
   ItemStockAPI.Controller.Categoria in 'src\Controller\ItemStockAPI.Controller.Categoria.pas',
   ItemStockAPI.Model.Categoria in 'src\Model\ItemStockAPI.Model.Categoria.pas',
-  ItemStockAPI.DAO.Categoria in 'src\DAO\instrucoes\ItemStockAPI.DAO.Categoria.pas';
+  ItemStockAPI.DAO.Categoria in 'src\DAO\instrucoes\ItemStockAPI.DAO.Categoria.pas',
+  ItemStockAPI.Routes.Categoria in 'src\Routes\ItemStockAPI.Routes.Categoria.pas';
 
 begin
 
@@ -50,6 +51,7 @@ begin
 
   TRoutesEstado.Routes;
   TContainerRoutes.Routes;
+  TCategoriaRotas.Routes;
 
   THorse.Listen(6564,procedure
   begin

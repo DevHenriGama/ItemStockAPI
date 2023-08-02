@@ -53,6 +53,7 @@ type
     function Data: TDataSet; overload;
     function Cor(aCor: String): ICategoriaDTO; overload;
     function Cor: String; overload;
+    function Deserialize(aJSON: String): ICategoriaDTO;
   end;
 
   IContainerDTO = interface

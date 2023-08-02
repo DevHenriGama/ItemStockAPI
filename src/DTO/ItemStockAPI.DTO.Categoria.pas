@@ -30,9 +30,13 @@ type
     function Data: TDataset; overload;
     function Cor(aCor: String): ICategoriaDTO; overload;
     function Cor: String; overload;
+    function Deserialize(aJSON  : String) : ICategoriaDTO;
   end;
 
 implementation
+
+uses
+  System.JSON;
 
 { TCategoriaDTO }
 
@@ -79,6 +83,22 @@ begin
   Result := FDescricao;
 end;
 
+function TCategoriaDTO.Deserialize(aJSON: String): ICategoriaDTO;
+var JObj : TJSONObject;
+begin
+  Result := Self;
+
+  JObj := TJSONObject.ParseJSONValue(aJSON) as TJSONObject;
+
+  with JObj do begin
+    TryGetValue<Integer>('id',FID);
+    TryGetValue<String>('categoria',FCategoria);
+    TryGetValue<String>('cor',FCor);
+    TryGetValue<String>('descricao',FDescricao);
+    TryGetValue<String>('uuid',FUUID);
+  end;
+end;
+
 function TCategoriaDTO.Descricao(aDescricao: String): ICategoriaDTO;
 begin
   Result := Self;
@@ -87,7 +107,7 @@ end;
 
 destructor TCategoriaDTO.Destroy;
 begin
-  FData.Free;
+
   inherited;
 end;
 

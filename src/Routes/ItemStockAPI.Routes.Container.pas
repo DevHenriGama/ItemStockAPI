@@ -109,8 +109,12 @@ end;
 
 class procedure TContainerRoutes.Routes;
 begin
-  Thorse.Group.Prefix('/container').Post('', OnAdicionar).Get('', OnObterTodos)
-    .Get('/:uuid', OnObterDados).Delete('/:id', onDeletar).Put('', OnEditar)
+  Thorse.Group.Prefix('/container')
+    .Post('', OnAdicionar)
+    .Get('', OnObterTodos)
+    .Get('/:uuid', OnObterDados)
+    .Delete('/:id', onDeletar)
+    .Put('', OnEditar)
     .Get('/quantidade', OnQuantidade);
 end;
 

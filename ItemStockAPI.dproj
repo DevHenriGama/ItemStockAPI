@@ -207,6 +207,7 @@
         <DCCReference Include="src\Controller\ItemStockAPI.Controller.Categoria.pas"/>
         <DCCReference Include="src\Model\ItemStockAPI.Model.Categoria.pas"/>
         <DCCReference Include="src\DAO\instrucoes\ItemStockAPI.DAO.Categoria.pas"/>
+        <DCCReference Include="src\Routes\ItemStockAPI.Routes.Categoria.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
