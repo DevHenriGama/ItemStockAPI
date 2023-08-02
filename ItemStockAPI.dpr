@@ -11,6 +11,7 @@ uses
   Horse.Logger,
   Horse.Jhonson,
   System.SysUtils,
+  DataSet.Serialize,
   ItemStockAPI.DAO.Conexao in 'src\DAO\conexao\ItemStockAPI.DAO.Conexao.pas',
   ItemStockAPI.DAO.Query in 'src\DAO\conexao\ItemStockAPI.DAO.Query.pas',
   ItemStockAPI.DAO.Interfaces in 'src\DAO\ItemStockAPI.DAO.Interfaces.pas',
@@ -25,7 +26,12 @@ uses
   ItemStockAPI.Model.Interfaces in 'src\Model\ItemStockAPI.Model.Interfaces.pas',
   ItemStockAPI.Controller.Estado in 'src\Controller\ItemStockAPI.Controller.Estado.pas',
   ItemStockAPI.Controller.Interfaces in 'src\Controller\ItemStockAPI.Controller.Interfaces.pas',
-  ItemStockAPI.Routes.Estado in 'src\Routes\ItemStockAPI.Routes.Estado.pas';
+  ItemStockAPI.Routes.Estado in 'src\Routes\ItemStockAPI.Routes.Estado.pas',
+  ItemStockAPI.Controller.Container in 'src\Controller\ItemStockAPI.Controller.Container.pas',
+  ItemStockAPI.Model.Container in 'src\Model\ItemStockAPI.Model.Container.pas',
+  ItemStockAPI.DAO.Container in 'src\DAO\instrucoes\ItemStockAPI.DAO.Container.pas',
+  ItemStockAPI.Model.PublicID in 'src\Model\Sistema\ItemStockAPI.Model.PublicID.pas',
+  ItemStockAPI.Routes.Container in 'src\Routes\ItemStockAPI.Routes.Container.pas';
 
 begin
 
@@ -33,7 +39,10 @@ begin
   THorse.Use(Jhonson);
   THorse.Use(OctetStream);
 
+  TDataSetSerializeConfig.GetInstance.CaseNameDefinition := TCaseNameDefinition.cndLower;
+
   TRoutesEstado.Routes;
+  TContainerRoutes.Routes;
 
   THorse.Listen(6564,procedure
   begin

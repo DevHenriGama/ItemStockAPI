@@ -11,7 +11,7 @@ type
     FID: Integer;
     FNumero: Integer;
     FDescricao: String;
-    FUUID : String;
+    FUUID: String;
     FData: TDataset;
   public
     class function New: IContainerDTO;
@@ -27,9 +27,13 @@ type
     function Descricao: String; overload;
     function Data(aData: TDataset): IContainerDTO; overload;
     function Data: TDataset; overload;
+    function Deserialize(aJSON: String): IContainerDTO;
   end;
 
 implementation
+
+uses
+  System.JSON;
 
 { TContainerDTO }
 
@@ -60,9 +64,26 @@ begin
   Result := FDescricao;
 end;
 
+function TContainerDTO.Deserialize(aJSON: String): IContainerDTO;
+var
+  JObj: TJSONObject;
+begin
+  Result := Self;
+
+  JObj := TJSONObject.ParseJSONValue(aJSON) as TJSONObject;
+
+  with JObj do
+  begin
+    TryGetValue<Integer>('numero', FNumero);
+    TryGetValue<String>('descricao', FDescricao);
+    TryGetValue<Integer>('id', FID);
+    TryGetValue<String>('uuid', FUUID);
+  end;
+end;
+
 destructor TContainerDTO.Destroy;
 begin
-  FData.Free;
+
   inherited;
 end;
 
@@ -95,13 +116,13 @@ end;
 
 function TContainerDTO.UUID: String;
 begin
-Result := FUUID;
+  Result := FUUID;
 end;
 
 function TContainerDTO.UUID(aUUID: String): IContainerDTO;
 begin
- Result := Self;
- FUUID := aUUID;
+  Result := Self;
+  FUUID := aUUID;
 end;
 
 end.

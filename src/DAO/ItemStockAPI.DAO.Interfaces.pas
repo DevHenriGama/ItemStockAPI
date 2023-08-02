@@ -24,6 +24,16 @@ type
     procedure ObterEstados;
   end;
 
+  IDContainer = interface
+    ['{262C4CD7-4D29-4FBF-B7E9-12BDA8111DC7}']
+    procedure Adicionar;
+    procedure Editar;
+    procedure Deletar;
+    procedure ObterDadosContainer(aUUID: String);
+    procedure ObterTodos;
+    function ObterNumContainer : Integer;
+  end;
+
 implementation
 
 end.

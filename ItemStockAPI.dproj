@@ -195,6 +195,11 @@
         <DCCReference Include="src\Controller\ItemStockAPI.Controller.Estado.pas"/>
         <DCCReference Include="src\Controller\ItemStockAPI.Controller.Interfaces.pas"/>
         <DCCReference Include="src\Routes\ItemStockAPI.Routes.Estado.pas"/>
+        <DCCReference Include="src\Controller\ItemStockAPI.Controller.Container.pas"/>
+        <DCCReference Include="src\Model\ItemStockAPI.Model.Container.pas"/>
+        <DCCReference Include="src\DAO\instrucoes\ItemStockAPI.DAO.Container.pas"/>
+        <DCCReference Include="src\Model\Sistema\ItemStockAPI.Model.PublicID.pas"/>
+        <DCCReference Include="src\Routes\ItemStockAPI.Routes.Container.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

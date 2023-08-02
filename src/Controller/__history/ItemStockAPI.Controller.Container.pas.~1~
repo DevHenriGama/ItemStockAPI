@@ -1,0 +1,38 @@
+unit ItemStockAPI.Controller.Container;
+
+interface
+
+uses
+  ItemStockAPI.DTO.Interfaces;
+
+type
+TCContainer = class(TInterfacedObject,ICContainer)
+  private
+
+  public
+  class function New(aObject : IContainerDTO) : ICContainer;
+  constructor Create(aObject : IContainerDTO);
+  destructor Destroy;override;
+end;
+
+implementation
+
+{ TCContainer }
+
+constructor TCContainer.Create(aObject: IContainerDTO);
+begin
+
+end;
+
+destructor TCContainer.Destroy;
+begin
+
+  inherited;
+end;
+
+class function TCContainer.New(aObject : IContainerDTO): ICContainer;
+begin
+  Result := TCContainer.Create(aObject);
+end;
+
+end.

@@ -1,0 +1,16 @@
+unit ItemStockAPI.Model.PublicID;
+
+interface
+
+type
+  TPublicID = class(TInterfacedObject, IPublicID)
+
+  private
+
+  public
+
+  end;
+
+implementation
+
+end.

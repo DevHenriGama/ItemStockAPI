@@ -1,0 +1,35 @@
+unit ItemStockAPI.Model.Container;
+
+interface
+
+uses
+  ItemStockAPI.DTO.Interfaces,
+  ItemStockAPI.Model.Interfaces;
+
+type
+TMContainer = class(TInterfacedObject,IMContainer)
+  private
+    DTO : IContainerDTO;
+  public
+  constructor Create(aObject : IContainerDTO);
+  destructor Destroy;override;
+end;
+
+implementation
+
+{ TMContainer }
+
+constructor TMContainer.Create(aObject: IContainerDTO);
+begin
+ DTO := aObject;
+end;
+
+destructor TMContainer.Destroy;
+begin
+
+  inherited;
+end;
+
+
+
+end.

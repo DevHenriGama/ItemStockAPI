@@ -1,0 +1,23 @@
+unit ItemStockAPI.Model.Interfaces;
+
+interface
+
+type
+  IMEstado = interface
+    ['{C00F5EBD-21E1-4F32-86A0-DACCF0619CCB}']
+    procedure ObterEstados;
+  end;
+
+  IMContainer = interface
+    ['{F5D03953-CB76-4398-8975-6C559E273416}']
+    procedure Adicionar;
+    procedure Editar;
+    procedure Deletar;
+    procedure ObterDadosContainer(aUUID: String);
+    procedure ObterTodos;
+    function ObterNumContainer: Integer;
+  end;
+
+implementation
+
+end.

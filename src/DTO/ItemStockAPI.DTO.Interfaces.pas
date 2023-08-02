@@ -65,6 +65,7 @@ type
     function Descricao: String; overload;
     function Data(aData: TDataSet): IContainerDTO; overload;
     function Data: TDataSet; overload;
+    function Deserialize(aJSON: String): IContainerDTO;
   end;
 
   IEstadoDTO = interface

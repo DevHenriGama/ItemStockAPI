@@ -25,8 +25,19 @@ uses
   ItemStockAPI.Model.Interfaces in 'src\Model\ItemStockAPI.Model.Interfaces.pas',
   ItemStockAPI.Controller.Estado in 'src\Controller\ItemStockAPI.Controller.Estado.pas',
   ItemStockAPI.Controller.Interfaces in 'src\Controller\ItemStockAPI.Controller.Interfaces.pas',
-  ItemStockAPI.Routes.Estado in 'src\Routes\ItemStockAPI.Routes.Estado.pas';
+  ItemStockAPI.Routes.Estado in 'src\Routes\ItemStockAPI.Routes.Estado.pas',
+  ItemStockAPI.Controller.Container in 'src\Controller\ItemStockAPI.Controller.Container.pas';
 
 begin
 
+  THorse.Use(Compression());
+  THorse.Use(Jhonson);
+  THorse.Use(OctetStream);
+
+  TRoutesEstado.Routes;
+
+  THorse.Listen(6564,procedure
+  begin
+    Writeln('ItemStockAPI Inicializada na porta 6564');
+  end);
 end.

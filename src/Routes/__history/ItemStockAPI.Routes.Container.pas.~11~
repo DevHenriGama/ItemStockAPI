@@ -1,0 +1,91 @@
+unit ItemStockAPI.Routes.Container;
+
+interface
+
+type
+  TContainerRoutes = class
+
+  public
+    class procedure Routes;
+  end;
+
+implementation
+
+uses
+  Horse,
+  ItemStockAPI.DTO.Interfaces,
+  ItemStockAPI.DTO.Container,
+  ItemStockAPI.Controller.Container,
+  DataSet.Serialize,
+  System.JSON;
+
+{ TContainerRoutes }
+
+procedure OnAdicionar(aReq: THorseRequest; aRes: THorseResponse);
+var
+  aDTO: IContainerDTO;
+begin
+  try
+    aDTO := TContainerDTO.Create;
+
+    TCContainer.New(aDTO.Deserialize(aReq.Body)).Adicionar;
+
+    aRes.Status(201);
+  except
+    aRes.Status(500);
+  end;
+end;
+
+procedure OnObterTodos(aReq: THorseRequest; aRes: THorseResponse);
+var
+  aDTO: IContainerDTO;
+begin
+  try
+    aDTO := TContainerDTO.Create;
+
+    TCContainer.New(aDTO).ObterTodos;
+
+    aRes.Send<TJSONArray>(aDTO.Data.TOJSONArray).Status(200);
+  except
+    aRes.Status(500);
+  end;
+end;
+
+procedure OnObterDados(aReq: THorseRequest; aRes: THorseResponse);
+begin
+
+end;
+
+procedure onDeletar(aReq: THorseRequest; aRes: THorseResponse);
+begin
+
+end;
+
+procedure OnEditar(aReq: THorseRequest; aRes: THorseResponse);
+var
+  aDTO: IContainerDTO;
+begin
+  try
+    aDTO := TContainerDTO.Create;
+
+    TCContainer.New(aDTO.Deserialize(aReq.Body)).Editar;
+
+    aRes.Status(200);
+  except
+    aRes.Status(500);
+  end;
+end;
+
+procedure OnQuantidade(aReq: THorseRequest; aRes: THorseResponse);
+begin
+
+end;
+
+class procedure TContainerRoutes.Routes;
+begin
+  Thorse.Group.Prefix('/container').Post('', OnAdicionar).Get('', OnObterTodos)
+    .Get('/:uuid', OnObterDados).Delete('/:id', onDeletar).Put('', OnEditar)
+    .Get('/quantidade', OnQuantidade);
+end;
+
+end.

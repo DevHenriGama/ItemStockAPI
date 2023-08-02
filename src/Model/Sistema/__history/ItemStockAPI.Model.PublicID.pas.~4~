@@ -1,0 +1,32 @@
+unit ItemStockAPI.Model.PublicID;
+
+interface
+
+uses
+  ItemStockAPI.Model.Interfaces;
+
+type
+  TPublicID = class(TInterfacedObject, IPublicID)
+
+  private
+
+  public
+  class function New : IPublicID;
+  function NovaChave(aDado : String) : String;
+  end;
+
+implementation
+
+{ TPublicID }
+
+function TPublicID.GerarChave(aDado: String): String;
+begin
+
+end;
+
+class function TPublicID.New: IPublicID;
+begin
+Result := TPublicID.Create;
+end;
+
+end.

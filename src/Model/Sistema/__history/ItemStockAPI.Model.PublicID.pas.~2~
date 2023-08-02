@@ -1,0 +1,19 @@
+unit ItemStockAPI.Model.PublicID;
+
+interface
+
+uses
+  ItemStockAPI.Model.Interfaces;
+
+type
+  TPublicID = class(TInterfacedObject, IPublicID)
+
+  private
+
+  public
+       function GerarChave(aDado : String) : String;
+  end;
+
+implementation
+
+end.
