@@ -20,7 +20,16 @@ type
 
   ICItemCategoria = interface
     ['{AF125119-6F29-431E-87F0-B8D6E94E49F9}']
-  procedure Adicionar;
+    procedure Adicionar;
+  end;
+
+  ICCategoria = interface
+    ['{DC670698-E695-482A-A487-0FA97E3C3811}']
+    procedure Adicionar;
+    procedure Remover;
+    procedure Editar;
+    procedure ObterTodasCategorias;
+    procedure ObterCategoria(aUUID: String);
   end;
 
 implementation

@@ -204,6 +204,9 @@
         <DCCReference Include="src\Controller\ItemStockAPI.Controller.ItemCategoria.pas"/>
         <DCCReference Include="src\Model\ItemStockAPI.Model.ItemCategoria.pas"/>
         <DCCReference Include="src\DAO\instrucoes\ItemStockAPI.DAO.ItemCategoria.pas"/>
+        <DCCReference Include="src\Controller\ItemStockAPI.Controller.Categoria.pas"/>
+        <DCCReference Include="src\Model\ItemStockAPI.Model.Categoria.pas"/>
+        <DCCReference Include="src\DAO\instrucoes\ItemStockAPI.DAO.Categoria.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

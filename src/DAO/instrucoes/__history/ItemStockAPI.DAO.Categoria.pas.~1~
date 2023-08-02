@@ -1,0 +1,32 @@
+unit ItemStockAPI.DAO.Categoria;
+
+interface
+
+uses
+  ItemStockAPI.DAO.Interfaces;
+
+type
+TDCategoria = class(TInterfacedObject,IDCategoria)
+  private
+    FInstance : TMCategoria;
+  public
+  constructor Create(aObject : TMCategoria);
+  destructor Destroy;override;
+end;
+
+implementation
+
+{ TDCategoria }
+
+constructor TDCategoria.Create(aObject: TMCategoria);
+begin
+ FInstance := aObject;
+end;
+
+destructor TDCategoria.Destroy;
+begin
+
+  inherited;
+end;
+
+end.

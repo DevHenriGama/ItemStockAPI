@@ -6,7 +6,7 @@ type
 
   IPublicID = interface
     ['{A81DF9F3-6AAC-4303-A870-5BE4CDEF9543}']
-    function NovaChave(aDado : String) : String;
+    function NovaChave(aDado: String): String;
   end;
 
   IMEstado = interface
@@ -26,7 +26,16 @@ type
 
   IMItemCategoria = interface
     ['{ABD26003-1A6A-43AD-B406-3CD730345559}']
-     procedure Adicionar;
+    procedure Adicionar;
+  end;
+
+  IMCategoria = interface
+    ['{CDC3D09D-E253-4176-9C2C-D061BA86AAF8}']
+    procedure Adicionar;
+    procedure Remover;
+    procedure Editar;
+    procedure ObterTodasCategorias;
+    procedure ObterCategoria(aUUID: String);
   end;
 
 implementation

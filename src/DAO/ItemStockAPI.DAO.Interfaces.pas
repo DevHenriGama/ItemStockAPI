@@ -39,6 +39,15 @@ type
     procedure Adicionar;
   end;
 
+  IDCategoria = interface
+    ['{B732BE2B-6C78-44D3-9185-4E8670308E1E}']
+    procedure Adicionar;
+    procedure Remover;
+    procedure Editar;
+    procedure ObterTodasCategorias;
+    procedure ObterCategoria(aUUID: String);
+  end;
+
 implementation
 
 end.

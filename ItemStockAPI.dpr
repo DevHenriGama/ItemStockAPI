@@ -35,7 +35,10 @@ uses
   ItemStockAPI.DTO.ItemCategoria in 'src\DTO\ItemStockAPI.DTO.ItemCategoria.pas',
   ItemStockAPI.Controller.ItemCategoria in 'src\Controller\ItemStockAPI.Controller.ItemCategoria.pas',
   ItemStockAPI.Model.ItemCategoria in 'src\Model\ItemStockAPI.Model.ItemCategoria.pas',
-  ItemStockAPI.DAO.ItemCategoria in 'src\DAO\instrucoes\ItemStockAPI.DAO.ItemCategoria.pas';
+  ItemStockAPI.DAO.ItemCategoria in 'src\DAO\instrucoes\ItemStockAPI.DAO.ItemCategoria.pas',
+  ItemStockAPI.Controller.Categoria in 'src\Controller\ItemStockAPI.Controller.Categoria.pas',
+  ItemStockAPI.Model.Categoria in 'src\Model\ItemStockAPI.Model.Categoria.pas',
+  ItemStockAPI.DAO.Categoria in 'src\DAO\instrucoes\ItemStockAPI.DAO.Categoria.pas';
 
 begin
 
