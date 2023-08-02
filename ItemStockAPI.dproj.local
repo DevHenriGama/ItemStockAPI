@@ -60,8 +60,16 @@
     <Transaction>2023/08/02 14:23:23.000.076,D:\Progamação\Projects\Extended\ItemStockV3.1\Project\API\Unit1.pas=D:\Progamação\Projects\Extended\ItemStockV3.1\Project\API\src\Model\ItemStockAPI.Model.Categoria.pas</Transaction>
     <Transaction>2023/08/02 14:23:58.000.899,=D:\Progamação\Projects\Extended\ItemStockV3.1\Project\API\Unit1.pas</Transaction>
     <Transaction>2023/08/02 14:25:03.000.321,D:\Progamação\Projects\Extended\ItemStockV3.1\Project\API\Unit1.pas=D:\Progamação\Projects\Extended\ItemStockV3.1\Project\API\src\DAO\instrucoes\ItemStockAPI.DAO.Categoria.pas</Transaction>
-    <Transaction>2023/08/02 14:46:21.315,=D:\Progamação\Projects\Extended\ItemStockV3.1\Project\API\Unit1.pas</Transaction>
-    <Transaction>2023/08/02 14:47:12.985,D:\Progamação\Projects\Extended\ItemStockV3.1\Project\API\src\Routes\ItemStockAPI.Routes.Categoria.pas=D:\Progamação\Projects\Extended\ItemStockV3.1\Project\API\Unit1.pas</Transaction>
+    <Transaction>2023/08/02 14:46:21.000.315,=D:\Progamação\Projects\Extended\ItemStockV3.1\Project\API\Unit1.pas</Transaction>
+    <Transaction>2023/08/02 14:47:12.000.985,D:\Progamação\Projects\Extended\ItemStockV3.1\Project\API\src\Routes\ItemStockAPI.Routes.Categoria.pas=D:\Progamação\Projects\Extended\ItemStockV3.1\Project\API\Unit1.pas</Transaction>
+    <Transaction>2023/08/02 15:18:43.000.110,=D:\Progamação\Projects\Extended\ItemStockV3.1\Project\API\Unit1.pas</Transaction>
+    <Transaction>2023/08/02 15:19:51.000.281,D:\Progamação\Projects\Extended\ItemStockV3.1\Project\API\Unit1.pas=D:\Progamação\Projects\Extended\ItemStockV3.1\Project\API\src\Controller\ItemStockAPI.Controller.ItemFoto.pas</Transaction>
+    <Transaction>2023/08/02 15:20:48.000.013,=D:\Progamação\Projects\Extended\ItemStockV3.1\Project\API\Unit1.pas</Transaction>
+    <Transaction>2023/08/02 15:21:37.000.082,D:\Progamação\Projects\Extended\ItemStockV3.1\Project\API\Unit1.pas=D:\Progamação\Projects\Extended\ItemStockV3.1\Project\API\src\Model\ItemStockAPI.Model.ItemFoto.pas</Transaction>
+    <Transaction>2023/08/02 15:22:05.000.798,=D:\Progamação\Projects\Extended\ItemStockV3.1\Project\API\Unit1.pas</Transaction>
+    <Transaction>2023/08/02 15:22:36.000.354,D:\Progamação\Projects\Extended\ItemStockV3.1\Project\API\Unit1.pas=D:\Progamação\Projects\Extended\ItemStockV3.1\Project\API\src\DAO\instrucoes\ItemStockAPI.DAO.ItemFoto.pas</Transaction>
+    <Transaction>2023/08/02 15:33:43.316,=D:\Progamação\Projects\Extended\ItemStockV3.1\Project\API\Unit1.pas</Transaction>
+    <Transaction>2023/08/02 15:34:46.582,D:\Progamação\Projects\Extended\ItemStockV3.1\Project\API\src\Model\Sistema\ItemStockAPI.Model.GerenciarFotos.pas=D:\Progamação\Projects\Extended\ItemStockV3.1\Project\API\Unit1.pas</Transaction>
   </Transactions>
 	<ProjectSortOrder AutoSort="0" SortType="0">
     <File Path="src"/>
@@ -71,6 +79,7 @@
     <File Path="src\Controller\ItemStockAPI.Controller.Container.pas"/>
     <File Path="src\Controller\ItemStockAPI.Controller.ItemCategoria.pas"/>
     <File Path="src\Controller\ItemStockAPI.Controller.Categoria.pas"/>
+    <File Path="src\Controller\ItemStockAPI.Controller.ItemFoto.pas"/>
     <File Path="src\DAO"/>
     <File Path="src\DAO\conexao"/>
     <File Path="src\DAO\conexao\ItemStockAPI.DAO.Conexao.pas"/>
@@ -80,6 +89,7 @@
     <File Path="src\DAO\instrucoes\ItemStockAPI.DAO.Container.pas"/>
     <File Path="src\DAO\instrucoes\ItemStockAPI.DAO.ItemCategoria.pas"/>
     <File Path="src\DAO\instrucoes\ItemStockAPI.DAO.Categoria.pas"/>
+    <File Path="src\DAO\instrucoes\ItemStockAPI.DAO.ItemFoto.pas"/>
     <File Path="src\DAO\ItemStockAPI.DAO.Interfaces.pas"/>
     <File Path="src\DTO"/>
     <File Path="src\DTO\ItemStockAPI.DTO.Item.pas"/>
@@ -92,11 +102,13 @@
     <File Path="src\Model"/>
     <File Path="src\Model\Sistema"/>
     <File Path="src\Model\Sistema\ItemStockAPI.Model.PublicID.pas"/>
+    <File Path="src\Model\Sistema\ItemStockAPI.Model.GerenciarFotos.pas"/>
     <File Path="src\Model\ItemStockAPI.Model.Interfaces.pas"/>
     <File Path="src\Model\ItemStockAPI.Model.Estado.pas"/>
     <File Path="src\Model\ItemStockAPI.Model.Container.pas"/>
     <File Path="src\Model\ItemStockAPI.Model.ItemCategoria.pas"/>
     <File Path="src\Model\ItemStockAPI.Model.Categoria.pas"/>
+    <File Path="src\Model\ItemStockAPI.Model.ItemFoto.pas"/>
     <File Path="src\Routes"/>
     <File Path="src\Routes\ItemStockAPI.Routes.Estado.pas"/>
     <File Path="src\Routes\ItemStockAPI.Routes.Container.pas"/>

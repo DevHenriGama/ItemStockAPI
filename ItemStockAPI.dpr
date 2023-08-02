@@ -39,7 +39,11 @@ uses
   ItemStockAPI.Controller.Categoria in 'src\Controller\ItemStockAPI.Controller.Categoria.pas',
   ItemStockAPI.Model.Categoria in 'src\Model\ItemStockAPI.Model.Categoria.pas',
   ItemStockAPI.DAO.Categoria in 'src\DAO\instrucoes\ItemStockAPI.DAO.Categoria.pas',
-  ItemStockAPI.Routes.Categoria in 'src\Routes\ItemStockAPI.Routes.Categoria.pas';
+  ItemStockAPI.Routes.Categoria in 'src\Routes\ItemStockAPI.Routes.Categoria.pas',
+  ItemStockAPI.Controller.ItemFoto in 'src\Controller\ItemStockAPI.Controller.ItemFoto.pas',
+  ItemStockAPI.Model.ItemFoto in 'src\Model\ItemStockAPI.Model.ItemFoto.pas',
+  ItemStockAPI.DAO.ItemFoto in 'src\DAO\instrucoes\ItemStockAPI.DAO.ItemFoto.pas',
+  ItemStockAPI.Model.GerenciarFotos in 'src\Model\Sistema\ItemStockAPI.Model.GerenciarFotos.pas';
 
 begin
 

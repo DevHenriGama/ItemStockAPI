@@ -49,6 +49,13 @@ type
     function ObterNumCategoria: Integer;
   end;
 
+  IDItemFoto = interface
+    ['{6E964E55-D279-4127-96D6-6F89DCCD34BD}']
+    procedure Adicionar;
+    procedure Remover;
+    procedure ObterFotosItem(aUUIDItem: String);
+  end;
+
 implementation
 
 end.

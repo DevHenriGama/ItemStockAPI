@@ -1,0 +1,56 @@
+unit ItemStockAPI.Controller.ItemFoto;
+
+interface
+
+uses
+  ItemStockAPI.DTO.Interfaces, ItemStockAPI.Controller.Interfaces;
+
+type
+TCItemFoto = class(TInterfacedObject,ICItemFoto)
+  private
+
+  public
+  class function New(aObject : IItemFotoDTO) : ICItemFoto;
+  constructor Create(aObject : IItemFotoDTO);
+  destructor Destroy;override;
+  procedure Adicionar;
+  procedure Remover;
+  procedure ObterFotosItem(aUUIDItem : String);
+end;
+
+implementation
+
+{ TCItemFoto }
+
+procedure TCItemFoto.Adicionar;
+begin
+
+end;
+
+constructor TCItemFoto.Create(aObject: IItemFotoDTO);
+begin
+
+end;
+
+destructor TCItemFoto.Destroy;
+begin
+
+  inherited;
+end;
+
+class function TCItemFoto.New(aObject : IItemFotoDTO): ICItemFoto;
+begin
+  Result := TCItemFoto.Create(aObject);
+end;
+
+procedure TCItemFoto.ObterFotosItem(aUUIDItem: String);
+begin
+
+end;
+
+procedure TCItemFoto.Remover;
+begin
+
+end;
+
+end.

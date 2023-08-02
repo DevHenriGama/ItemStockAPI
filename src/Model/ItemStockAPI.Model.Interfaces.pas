@@ -9,6 +9,10 @@ type
     function NovaChave(aDado: String): String;
   end;
 
+  IGerenciarFotos = interface
+    ['{BC5087BF-891A-4DAF-9108-632BC4485594}']
+  end;
+
   IMEstado = interface
     ['{C00F5EBD-21E1-4F32-86A0-DACCF0619CCB}']
     procedure ObterEstados;
@@ -37,6 +41,13 @@ type
     procedure ObterTodasCategorias;
     procedure ObterCategoria(aUUID: String);
     function ObterNumCategoria: Integer;
+  end;
+
+  IMItemFoto = interface
+    ['{C072BC24-4097-4279-971E-6ADFA250ABFF}']
+    procedure Adicionar;
+    procedure Remover;
+    procedure ObterFotosItem(aUUIDItem: String);
   end;
 
 implementation

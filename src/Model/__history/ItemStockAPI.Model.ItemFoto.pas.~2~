@@ -1,0 +1,32 @@
+unit ItemStockAPI.Model.ItemFoto;
+
+interface
+
+uses
+  ItemStockAPI.DTO.Interfaces, ItemStockAPI.Model.Interfaces;
+
+type
+TMItemFoto = class(TInterfacedObject,IMItemFoto)
+  private
+    FInstance : IItemFotoDTO;
+  public
+  constructor Create(aObject : IItemFotoDTO);
+  destructor Destroy;override;
+end;
+
+implementation
+
+{ TMItemFoto }
+
+constructor TMItemFoto.Create(aObject: IItemFotoDTO);
+begin
+ FInstance := aObject;
+end;
+
+destructor TMItemFoto.Destroy;
+begin
+
+  inherited;
+end;
+
+end.
