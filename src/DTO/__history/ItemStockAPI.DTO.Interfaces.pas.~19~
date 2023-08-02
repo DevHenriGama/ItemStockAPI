@@ -45,6 +45,8 @@ type
     function ID: Integer; overload;
     function Categoria(aCategoria: String): ICategoriaDTO; overload;
     function Categoria: String; overload;
+    function UUID(aUUID: String): ICategoriaDTO; overload;
+    function UUID: String; overload;
     function Descricao(aDescricao: String): ICategoriaDTO; overload;
     function Descricao: String; overload;
     function Data(aData: TDataSet): ICategoriaDTO; overload;
@@ -53,7 +55,31 @@ type
 
   IContainerDTO = interface
     ['{4C3268E2-37AA-4D8E-8D2C-7948AC5A1AB1}']
+    function ID(aID: Integer): IContainerDTO; overload;
+    function ID: Integer; overload;
+    function Numero(aNumero: Integer): IContainerDTO; overload;
+    function Numero: Integer; overload;
+    function UUID(aUUID: String): IContainerDTO; overload;
+    function UUID: String; overload;
+    function Descricao(aDescricao: String): IContainerDTO; overload;
+    function Descricao: String; overload;
+    function Data(aData: TDataSet): IContainerDTO; overload;
+    function Data: TDataSet; overload;
+    function Deserialize(aJSON: String): IContainerDTO;
+  end;
 
+  IEstadoDTO = interface
+    ['{13DE32B6-99CD-4773-A375-1BBA196BCD1A}']
+    function Data(aData: TDataSet): IEstadoDTO; overload;
+    function Data: TDataSet; overload;
+  end;
+
+  IItemCategoriaDTO = interface
+    ['{D4B6110C-F4B4-442D-B664-28B157EC0E6B}']
+    function IDItem(aID: Integer): IItemCategoriaDTO; overload;
+    function IDItem: Integer; overload;
+    function IDCategoria(aID: Integer): IItemCategoriaDTO; overload;
+    function IDCategoria: Integer; overload;
   end;
 
 implementation

@@ -41,17 +41,6 @@ begin
   Result := FCategoria;
 end;
 
-function TCategoriaDTO.Cor: String;
-begin
-Result := FCor;
-end;
-
-function TCategoriaDTO.Cor(aCor: String): ICategoriaDTO;
-begin
-Result := Self;
-FCor := aCor;
-end;
-
 function TCategoriaDTO.Categoria(aCategoria: String): ICategoriaDTO;
 begin
   Result := Self;

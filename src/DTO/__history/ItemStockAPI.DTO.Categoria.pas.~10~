@@ -13,7 +13,6 @@ type
     FDescricao: String;
     FUUID: String;
     FData: TDataset;
-    FCor: String;
   public
     class function New: ICategoriaDTO;
     constructor Create;
@@ -28,8 +27,6 @@ type
     function Descricao: String; overload;
     function Data(aData: TDataset): ICategoriaDTO; overload;
     function Data: TDataset; overload;
-    function Cor(aCor: String): ICategoriaDTO; overload;
-    function Cor: String; overload;
   end;
 
 implementation
@@ -39,17 +36,6 @@ implementation
 function TCategoriaDTO.Categoria: String;
 begin
   Result := FCategoria;
-end;
-
-function TCategoriaDTO.Cor: String;
-begin
-Result := FCor;
-end;
-
-function TCategoriaDTO.Cor(aCor: String): ICategoriaDTO;
-begin
-Result := Self;
-FCor := aCor;
 end;
 
 function TCategoriaDTO.Categoria(aCategoria: String): ICategoriaDTO;

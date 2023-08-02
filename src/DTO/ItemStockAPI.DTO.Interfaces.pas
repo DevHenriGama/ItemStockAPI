@@ -51,6 +51,8 @@ type
     function Descricao: String; overload;
     function Data(aData: TDataSet): ICategoriaDTO; overload;
     function Data: TDataSet; overload;
+    function Cor(aCor: String): ICategoriaDTO; overload;
+    function Cor: String; overload;
   end;
 
   IContainerDTO = interface
