@@ -24,7 +24,7 @@ type
 implementation
 
 uses
-  ItemStockAPI.DAO.Query, ItemStockAPI.Model.PublicID, System.SysUtils;
+  ItemStockAPI.DAO.Query, ItemStockAPI.Model.PublicID;
 
 { TDCategoria }
 
@@ -73,7 +73,7 @@ end;
 
 procedure TDCategoria.ObterCategoria(aUUID: String);
 begin
-  FInstance.ObterDTO.Data(Query.ExecutarQuery('SELECT * FROM CATEGORIA WHERE UUID = ' + QuotedStr(aUUID)));
+
 end;
 
 function TDCategoria.ObterNumCategoria: Integer;

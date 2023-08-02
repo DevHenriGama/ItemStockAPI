@@ -24,7 +24,7 @@ type
 implementation
 
 uses
-  ItemStockAPI.DAO.Query, ItemStockAPI.Model.PublicID, System.SysUtils;
+  ItemStockAPI.DAO.Query, ItemStockAPI.Model.PublicID;
 
 { TDCategoria }
 
@@ -58,7 +58,7 @@ end;
 
 procedure TDCategoria.Editar;
 begin
-  with Query.ObterQuery do
+   with Query.ObterQuery do
   begin
     Close;
     SQL.Clear;
@@ -66,36 +66,30 @@ begin
     ParamByName('cat').AsString := FInstance.ObterDTO.Categoria;
     ParamByName('desc').AsString := FInstance.ObterDTO.Descricao;
     ParamByName('cor').AsString := FInstance.ObterDTO.Cor;
-    ParamByName('id').asInteger := FInstance.ObterDTO.ID;
+    ParamByName('uuid').AsString := TPublicID.New.NovaChave
+      (FInstance.ObterDTO.Categoria);
     ExecSQL;
   end;
 end;
 
 procedure TDCategoria.ObterCategoria(aUUID: String);
 begin
-  FInstance.ObterDTO.Data(Query.ExecutarQuery('SELECT * FROM CATEGORIA WHERE UUID = ' + QuotedStr(aUUID)));
+
 end;
 
 function TDCategoria.ObterNumCategoria: Integer;
 begin
- Result := Query.ExecutarQuery('SELECT COUNT(c.ID) FROM CATEGORIA c').FieldByName('COUNT').AsInteger;
+
 end;
 
 procedure TDCategoria.ObterTodasCategorias;
 begin
-  FInstance.ObterDTO.Data(Query.ExecutarQuery('SELECT * FROM CATEGORIA'));
+
 end;
 
 procedure TDCategoria.Remover;
 begin
-   with Query.ObterQuery do
-  begin
-    Close;
-    SQL.Clear;
-    SQL.Add('DELETE FROM CATEGORIA WHERE ID = :id');
-    ParamByName('id').asInteger := FInstance.ObterDTO.ID;
-    ExecSQL;
-  end;
+
 end;
 
 end.

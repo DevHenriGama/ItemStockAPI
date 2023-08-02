@@ -19,7 +19,6 @@ TCCategoria = class(TInterfacedObject,ICCategoria)
   procedure Editar;
   procedure ObterTodasCategorias;
   procedure ObterCategoria(aUUID : String);
-  function ObterNumCategoria : Integer;
 end;
 
 implementation
@@ -58,11 +57,6 @@ end;
 procedure TCCategoria.ObterCategoria(aUUID: String);
 begin
   FModel.ObterCategoria(aUUID);
-end;
-
-function TCCategoria.ObterNumCategoria: Integer;
-begin
- Result := FModel.ObterNumCategoria;
 end;
 
 procedure TCCategoria.ObterTodasCategorias;

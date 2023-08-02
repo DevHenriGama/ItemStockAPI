@@ -36,6 +36,7 @@ type
     procedure Editar;
     procedure ObterTodasCategorias;
     procedure ObterCategoria(aUUID: String);
+    function ObterNumCategoria: Integer;
   end;
 
 implementation

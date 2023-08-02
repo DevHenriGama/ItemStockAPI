@@ -73,7 +73,7 @@ end;
 
 procedure TDCategoria.ObterCategoria(aUUID: String);
 begin
-  FInstance.ObterDTO.Data(Query.ExecutarQuery('SELECT * FROM CATEGORIA WHERE UUID = ' + QuotedStr(aUUID)));
+  FInstance.ObterDTO.Data(Query.ExecutarQuery('SELECT * FROM CATEGORIA WHERE UUID = ' + QuotedStr(aUUID));
 end;
 
 function TDCategoria.ObterNumCategoria: Integer;

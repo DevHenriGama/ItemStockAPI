@@ -1,0 +1,73 @@
+unit ItemStockAPI.DAO.Categoria;
+
+interface
+
+uses
+  ItemStockAPI.DAO.Interfaces, ItemStockAPI.Model.Categoria;
+
+type
+  TDCategoria = class(TInterfacedObject, IDCategoria)
+  private
+    FInstance: TMCategoria;
+    Query: IQuery;
+  public
+    constructor Create(aObject: TMCategoria);
+    destructor Destroy; override;
+    procedure Adicionar;
+    procedure Remover;
+    procedure Editar;
+    procedure ObterTodasCategorias;
+    procedure ObterCategoria(aUUID: String);
+    function ObterNumCategoria: Integer;
+  end;
+
+implementation
+
+uses
+  ItemStockAPI.DAO.Query;
+
+{ TDCategoria }
+
+procedure TDCategoria.Adicionar;
+begin
+
+end;
+
+constructor TDCategoria.Create(aObject: TMCategoria);
+begin
+  FInstance := aObject;
+  Query := TQuery.Create;
+end;
+
+destructor TDCategoria.Destroy;
+begin
+
+  inherited;
+end;
+
+procedure TDCategoria.Editar;
+begin
+
+end;
+
+procedure TDCategoria.ObterCategoria(aUUID: String);
+begin
+
+end;
+
+function TDCategoria.ObterNumCategoria: Integer;
+begin
+
+end;
+
+procedure TDCategoria.ObterTodasCategorias;
+begin
+
+end;
+
+procedure TDCategoria.Remover;
+begin
+
+end;
+
+end.

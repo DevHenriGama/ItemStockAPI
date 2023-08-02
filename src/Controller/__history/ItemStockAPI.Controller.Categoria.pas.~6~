@@ -62,7 +62,7 @@ end;
 
 function TCCategoria.ObterNumCategoria: Integer;
 begin
- Result := FModel.ObterNumCategoria;
+
 end;
 
 procedure TCCategoria.ObterTodasCategorias;

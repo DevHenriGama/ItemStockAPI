@@ -64,7 +64,7 @@ end;
 
 function TMCategoria.ObterNumCategoria: Integer;
 begin
-Result := FDAO.ObterNumCategoria;
+
 end;
 
 procedure TMCategoria.ObterTodasCategorias;
