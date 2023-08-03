@@ -1,0 +1,45 @@
+unit ItemStockAPI.Controller.Item;
+
+interface
+
+uses
+  ItemStockAPI.DTO.Interfaces,
+  ItemStockAPI.Controller.Interfaces;
+
+type
+TCItem = class(TInterfacedObject,ICItem)
+  private
+
+  public
+  class function New(aObject: IItemDTO) : ICItem;
+  constructor Create(aObject : IItemDTO);
+  destructor Destroy;override;
+  procedure Adicionar;
+  procedure Remover;
+  procedure Editar;
+  procedure PesquisarItem(aChave : String);
+  procedure ObterDadosItem(aUUID : String);
+  procedure ListarItemContainer(aUUIDContainer : String);
+end;
+
+implementation
+
+{ TCItem }
+
+constructor TCItem.Create(aObject: IItemDTO);
+begin
+
+end;
+
+destructor TCItem.Destroy;
+begin
+
+  inherited;
+end;
+
+class function TCItem.New(aObject: IItemDTO): ICItem;
+begin
+  Result := TCItem.Create(aObject);
+end;
+
+end.

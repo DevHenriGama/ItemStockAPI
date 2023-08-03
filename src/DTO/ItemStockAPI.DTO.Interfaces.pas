@@ -39,6 +39,7 @@ type
     function Data: TDataSet; overload;
     function LinkFoto(aPath: String): IItemFotoDTO; overload;
     function LinkFoto: String; overload;
+    function Deserialize(aJSON: String): IItemFotoDTO;
   end;
 
   ICategoriaDTO = interface

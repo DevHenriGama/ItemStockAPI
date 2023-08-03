@@ -1,0 +1,39 @@
+unit ItemStockAPI.Routes.ItemFoto;
+
+interface
+
+type
+  TItemFotoRota = class
+
+  public
+    class procedure Routes;
+  end;
+
+implementation
+
+uses
+  Horse;
+
+{ TItemFotoRota }
+
+procedure OnObterTodas(aReq: THorseRequest; aRes: THorseResponse);
+begin
+
+end;
+
+procedure OnAdicionar(aReq: THorseRequest; aRes: THorseResponse);
+begin
+
+end;
+
+procedure OnRemover(aReq: THorseRequest; aRes: THorseResponse);
+begin
+
+end;
+
+class procedure TItemFotoRota.Routes;
+begin
+ THorse.Group.Prefix('/foto').Get('/:uuid',OnObterTodas).Post('',OnAdicionar).Delete('',OnRemover);
+end;
+
+end.

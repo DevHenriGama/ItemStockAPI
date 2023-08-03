@@ -56,6 +56,16 @@ type
     procedure ObterFotosItem(aUUIDItem: String);
   end;
 
+  IDItem = interface
+    ['{8D6E02F2-95B5-4FA2-BADB-E4FBB7C62ED7}']
+    procedure Adicionar;
+    procedure Remover;
+    procedure Editar;
+    procedure PesquisarItem(aChave: String);
+    procedure ObterDadosItem(aUUID: String);
+    procedure ListarItemContainer(aUUIDContainer: String);
+  end;
+
 implementation
 
 end.

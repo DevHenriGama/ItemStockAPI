@@ -13,7 +13,7 @@ type
     FFotoStream: TStream;
     FIDItem: Integer;
     FData: TDataset;
-    FLink : String;
+    FLink: String;
   public
     class function New: IItemFotoDTO;
     constructor Create;
@@ -30,9 +30,13 @@ type
     function IDItem: Integer; overload;
     function Data(aData: TDataset): IItemFotoDTO; overload;
     function Data: TDataset; overload;
+    function Deserialize(aJSON: String): IItemFotoDTO;
   end;
 
 implementation
+
+uses
+  System.JSON;
 
 { TItemFotoDTO }
 
@@ -50,6 +54,24 @@ end;
 function TItemFotoDTO.Data: TDataset;
 begin
   Result := FData;
+end;
+
+function TItemFotoDTO.Deserialize(aJSON: String): IItemFotoDTO;
+var
+  JObj: TJSONObject;
+begin
+  Result := Self;
+
+  JObj := TJSONObject.ParseJSONValue(aJSON) as TJSONObject;
+
+  with JObj do
+  begin
+    TryGetValue<Integer>('id_item', FIDItem);
+    TryGetValue<Integer>('id', FID);
+    TryGetValue<String>('link', FLink);
+    TryGetValue<String>('file_path', FFotoPath);
+  end;
+
 end;
 
 destructor TItemFotoDTO.Destroy;
@@ -76,13 +98,13 @@ end;
 
 function TItemFotoDTO.LinkFoto: String;
 begin
-Result := FLink;
+  Result := FLink;
 end;
 
 function TItemFotoDTO.LinkFoto(aPath: String): IItemFotoDTO;
 begin
- Result := Self;
- FLink := aPath;
+  Result := Self;
+  FLink := aPath;
 end;
 
 function TItemFotoDTO.IDItem(aID: Integer): IItemFotoDTO;

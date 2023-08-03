@@ -43,7 +43,11 @@ uses
   ItemStockAPI.Controller.ItemFoto in 'src\Controller\ItemStockAPI.Controller.ItemFoto.pas',
   ItemStockAPI.Model.ItemFoto in 'src\Model\ItemStockAPI.Model.ItemFoto.pas',
   ItemStockAPI.DAO.ItemFoto in 'src\DAO\instrucoes\ItemStockAPI.DAO.ItemFoto.pas',
-  ItemStockAPI.Model.GerenciarFotos in 'src\Model\Sistema\ItemStockAPI.Model.GerenciarFotos.pas';
+  ItemStockAPI.Model.GerenciarFotos in 'src\Model\Sistema\ItemStockAPI.Model.GerenciarFotos.pas',
+  ItemStockAPI.Routes.ItemFoto in 'src\Routes\ItemStockAPI.Routes.ItemFoto.pas',
+  ItemStockAPI.Controller.Item in 'src\Controller\ItemStockAPI.Controller.Item.pas',
+  ItemStockAPI.Model.Item in 'src\Model\ItemStockAPI.Model.Item.pas',
+  ItemStockAPI.DAO.Item in 'src\DAO\instrucoes\ItemStockAPI.DAO.Item.pas';
 
 begin
 
@@ -56,6 +60,7 @@ begin
   TRoutesEstado.Routes;
   TContainerRoutes.Routes;
   TCategoriaRotas.Routes;
+  TItemFotoRota.Routes;
 
   THorse.Listen(6564,procedure
   begin

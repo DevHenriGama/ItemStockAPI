@@ -212,6 +212,10 @@
         <DCCReference Include="src\Model\ItemStockAPI.Model.ItemFoto.pas"/>
         <DCCReference Include="src\DAO\instrucoes\ItemStockAPI.DAO.ItemFoto.pas"/>
         <DCCReference Include="src\Model\Sistema\ItemStockAPI.Model.GerenciarFotos.pas"/>
+        <DCCReference Include="src\Routes\ItemStockAPI.Routes.ItemFoto.pas"/>
+        <DCCReference Include="src\Controller\ItemStockAPI.Controller.Item.pas"/>
+        <DCCReference Include="src\Model\ItemStockAPI.Model.Item.pas"/>
+        <DCCReference Include="src\DAO\instrucoes\ItemStockAPI.DAO.Item.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

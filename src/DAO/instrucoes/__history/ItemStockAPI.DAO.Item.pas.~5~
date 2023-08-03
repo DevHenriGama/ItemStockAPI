@@ -1,0 +1,78 @@
+unit ItemStockAPI.DAO.Item;
+
+interface
+
+uses
+  ItemStockAPI.Model.Item,
+  ItemStockAPI.DAO.Interfaces;
+
+type
+  TDItem = class(TInterfacedObject, IDItem)
+  private
+    FInstance: TMItem;
+    Query : IQuery;
+  public
+    constructor Create(aObject: TMItem);
+    destructor Destroy; override;
+    procedure Adicionar;
+    procedure Remover;
+    procedure Editar;
+    procedure PesquisarItem(aChave: String);
+    procedure ObterDadosItem(aUUID: String);
+    procedure ListarItemContainer(aUUIDContainer: String);
+  end;
+
+implementation
+
+uses
+  ItemStockAPI.DAO.Query;
+
+{ TDItem }
+
+procedure TDItem.Adicionar;
+begin
+ with Query.ObterQuery do begin
+   Close;
+   SQL.Clear;
+   SQL.Add('INSERT INTO ITEM (NOME, ID_CONTAINER, ID_ESTADO, DESCRICAO, UUID) VALUES (:nome, :cont, :est, :desc, :uid)');
+ end;
+end;
+
+constructor TDItem.Create(aObject: TMItem);
+begin
+  FInstance := aObject;
+  Query := TQuery.Create;
+end;
+
+destructor TDItem.Destroy;
+begin
+
+  inherited;
+end;
+
+procedure TDItem.Editar;
+begin
+
+end;
+
+procedure TDItem.ListarItemContainer(aUUIDContainer: String);
+begin
+
+end;
+
+procedure TDItem.ObterDadosItem(aUUID: String);
+begin
+
+end;
+
+procedure TDItem.PesquisarItem(aChave: String);
+begin
+
+end;
+
+procedure TDItem.Remover;
+begin
+
+end;
+
+end.
