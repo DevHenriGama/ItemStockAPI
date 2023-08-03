@@ -10,8 +10,7 @@ type
   TGerenciarFotos = class(TInterfacedObject, IGerenciarFotos)
   private
     FInstance: IItemFotoDTO;
-    const _DOMAIN : String = 'http://192.168.100.21/ItemStockAPI/img';
-    function ServidorArquivos : String;
+    function CaminhoArquivos : String;
     function ValidarFoto(aNome : String) : Boolean;
     function GerarNome : String;
   public
@@ -19,7 +18,6 @@ type
     constructor Create(aObject: IItemFotoDTO);
     destructor Destroy; override;
     procedure SalvarFoto;
-    procedure DeletarFoto;
   end;
 
 implementation
@@ -29,21 +27,14 @@ uses
 
 { TGerenciarFotos }
 
-function TGerenciarFotos.ServidorArquivos: String;
+function TGerenciarFotos.CaminhoArquivos: String;
 begin
-//Result := ExtractFilePath(ParamStr(0)) + '/img/';
-
-Result := 'C:\Apache24\htdocs\ItemStockAPI\img\';
+Result := ExtractFilePath(ParamStr(0)) + '/img/';
 end;
 
 constructor TGerenciarFotos.Create(aObject: IItemFotoDTO);
 begin
   FInstance := aObject;
-end;
-
-procedure TGerenciarFotos.DeletarFoto;
-begin
-DeleteFile(FInstance.CaminhoArquivo);
 end;
 
 destructor TGerenciarFotos.Destroy;
@@ -97,21 +88,21 @@ begin
   LPicture := TMemoryStream.Create;
   try
     LPicture.LoadFromStream(FInstance.Stream);
-    LDIR := ServidorArquivos + aNome;
+    LDIR := CaminhoArquivos + aNome;
 
     LPicture.SaveToFile(LDIR);
   finally
     LPicture.Free;
   end;
 
-  FInstance.LinkFoto(_DOMAIN + aNome);
-  FInstance.CaminhoArquivo(LDIR);
+ // FInstance.Foto(_DOMAIN + aNome);
+  //FInstance.Caminho(LDIR);
 
 end;
 
 function TGerenciarFotos.ValidarFoto(aNome: String): Boolean;
 begin
-  Result := FileExists(ServidorArquivos + aNome);
+  Result := FileExists(CaminhoArquivos + aNome);
 end;
 
 end.

@@ -19,7 +19,6 @@ type
     constructor Create(aObject: IItemFotoDTO);
     destructor Destroy; override;
     procedure SalvarFoto;
-    procedure DeletarFoto;
   end;
 
 implementation
@@ -31,19 +30,12 @@ uses
 
 function TGerenciarFotos.ServidorArquivos: String;
 begin
-//Result := ExtractFilePath(ParamStr(0)) + '/img/';
-
-Result := 'C:\Apache24\htdocs\ItemStockAPI\img\';
+Result := ExtractFilePath(ParamStr(0)) + '/img/';
 end;
 
 constructor TGerenciarFotos.Create(aObject: IItemFotoDTO);
 begin
   FInstance := aObject;
-end;
-
-procedure TGerenciarFotos.DeletarFoto;
-begin
-DeleteFile(FInstance.CaminhoArquivo);
 end;
 
 destructor TGerenciarFotos.Destroy;

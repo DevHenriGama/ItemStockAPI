@@ -1,0 +1,55 @@
+unit ItemStockAPI.DAO.ItemFoto;
+
+interface
+
+uses
+  ItemStockAPI.Model.ItemFoto, ItemStockAPI.DAO.Interfaces;
+
+type
+  TDItemFoto = class(TInterfacedObject, IDItemFoto)
+  private
+    FInstance: TMItemFoto;
+    Query : IQuery;
+  public
+    constructor Create(aObject: TMItemFoto);
+    destructor Destroy; override;
+    procedure Adicionar;
+    procedure Remover;
+    procedure ObterFotosItem(aUUIDItem: String);
+  end;
+
+implementation
+
+uses
+  ItemStockAPI.DAO.Query;
+
+{ TDItemFoto }
+
+procedure TDItemFoto.Adicionar;
+begin
+
+end;
+
+constructor TDItemFoto.Create(aObject: TMItemFoto);
+begin
+  FInstance := aObject;
+  Query := TQuery.Create;
+end;
+
+destructor TDItemFoto.Destroy;
+begin
+
+  inherited;
+end;
+
+procedure TDItemFoto.ObterFotosItem(aUUIDItem: String);
+begin
+
+end;
+
+procedure TDItemFoto.Remover;
+begin
+
+end;
+
+end.

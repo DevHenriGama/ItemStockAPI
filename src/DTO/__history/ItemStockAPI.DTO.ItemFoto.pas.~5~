@@ -54,7 +54,7 @@ end;
 
 destructor TItemFotoDTO.Destroy;
 begin
-
+  FData.Free;
   inherited;
 end;
 

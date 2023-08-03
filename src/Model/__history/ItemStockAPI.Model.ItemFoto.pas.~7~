@@ -23,13 +23,12 @@ type
 implementation
 
 uses
-  ItemStockAPI.DAO.ItemFoto, ItemStockAPI.Model.GerenciarFotos;
+  ItemStockAPI.DAO.ItemFoto;
 
 { TMItemFoto }
 
 procedure TMItemFoto.Adicionar;
 begin
-  TGerenciarFotos.New(FInstance). SalvarFoto;
   FDAO.Adicionar;
 end;
 
@@ -57,7 +56,6 @@ end;
 
 procedure TMItemFoto.Remover;
 begin
-  TGerenciarFotos.New(FInstance).DeletarFoto;
   FDAO.Remover;
 end;
 

@@ -21,7 +21,7 @@ type
 implementation
 
 uses
-  ItemStockAPI.DAO.Query, System.SysUtils;
+  ItemStockAPI.DAO.Query;
 
 { TDItemFoto }
 
@@ -52,27 +52,13 @@ begin
 end;
 
 procedure TDItemFoto.ObterFotosItem(aUUIDItem: String);
-var
-  aSQL: String;
 begin
-  aSQL := 'SELECT if2.ID , if2.ID_ITEM ,if2.LINK , if2.FILE_PATH' +
-    ' FROM ITEM_FOTO if2' + ' JOIN ITEM i ON if2.ID_ITEM = i.ID' +
-    ' WHERE i.UUID  = ' + QuotedStr(aUUIDItem);
-
-  FInstance.ObterDTO.Data(Query.ExecutarQuery(aSQL));
 
 end;
 
 procedure TDItemFoto.Remover;
 begin
-  with Query.ObterQuery do
-  begin
-    Close;
-    SQL.Clear;
-    SQL.Add('DELETE FROM ITEM_FOTO WHERE ID = :id');
-    ParamByName('id').AsInteger := FInstance.ObterDTO.ID;
-    ExecSQL;
-  end;
+
 end;
 
 end.

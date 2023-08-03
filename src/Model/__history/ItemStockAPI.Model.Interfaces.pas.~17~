@@ -11,8 +11,6 @@ type
 
   IGerenciarFotos = interface
     ['{BC5087BF-891A-4DAF-9108-632BC4485594}']
-    procedure SalvarFoto;
-    procedure DeletarFoto;
   end;
 
   IMEstado = interface

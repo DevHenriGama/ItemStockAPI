@@ -1,0 +1,58 @@
+unit ItemStockAPI.Model.GerenciarFotos;
+
+interface
+
+uses
+  ItemStockAPI.DTO.Interfaces,
+  ItemStockAPI.Model.Interfaces;
+
+type
+  TGerenciarFotos = class(TInterfacedObject, IGerenciarFotos)
+  private
+    FInstance: IItemFotoDTO;
+    const _PATH_FILE_SERVER : String = '';
+    function ValidarFoto(aNome : String) : Boolean;
+    function GerarNome : String;
+  public
+    class function New(aObject: IItemFotoDTO): IGerenciarFotos;
+    constructor Create(aObject: IItemFotoDTO);
+    destructor Destroy; override;
+    procedure SalvarFoto;
+  end;
+
+implementation
+
+{ TGerenciarFotos }
+
+constructor TGerenciarFotos.Create(aObject: IItemFotoDTO);
+begin
+  FInstance := aObject;
+end;
+
+destructor TGerenciarFotos.Destroy;
+begin
+
+  inherited;
+end;
+
+function TGerenciarFotos.GerarNome: String;
+begin
+
+end;
+
+class function TGerenciarFotos.New(aObject: IItemFotoDTO): IGerenciarFotos;
+begin
+  Result := TGerenciarFotos.Create(aObject);
+end;
+
+procedure TGerenciarFotos.SalvarFoto;
+begin
+
+end;
+
+function TGerenciarFotos.ValidarFoto(aNome: String): Boolean;
+begin
+
+end;
+
+end.

@@ -29,14 +29,16 @@ type
     ['{C1F49088-DF6F-4AF2-9371-87837258E4E8}']
     function ID(aID: Integer): IItemFotoDTO; overload;
     function ID: Integer; overload;
-    function Path(aPath: String): IItemFotoDTO; overload;
-    function Path: String; overload;
+    function CaminhoArquivo(aPath: String): IItemFotoDTO; overload;
+    function CaminhoArquivo: String; overload;
     function Stream(aStream: TStream): IItemFotoDTO; overload;
     function Stream: TStream; overload;
     function IDItem(aID: Integer): IItemFotoDTO; overload;
     function IDItem: Integer; overload;
     function Data(aData: TDataSet): IItemFotoDTO; overload;
     function Data: TDataSet; overload;
+    function LinkFoto(aPath: String): IItemFotoDTO; overload;
+    function LinkFoto: String; overload;
   end;
 
   ICategoriaDTO = interface

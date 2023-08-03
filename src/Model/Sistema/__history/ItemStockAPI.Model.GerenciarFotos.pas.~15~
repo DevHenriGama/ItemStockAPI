@@ -31,9 +31,7 @@ uses
 
 function TGerenciarFotos.ServidorArquivos: String;
 begin
-//Result := ExtractFilePath(ParamStr(0)) + '/img/';
-
-Result := 'C:\Apache24\htdocs\ItemStockAPI\img\';
+Result := ExtractFilePath(ParamStr(0)) + '/img/';
 end;
 
 constructor TGerenciarFotos.Create(aObject: IItemFotoDTO);
