@@ -96,16 +96,13 @@ begin
 end;
 
 function TDItem.ObterQuantidade: Integer;
-var
-  aSQL: String;
 begin
-  aSQL := 'SELECT COUNT(i.ID) FROM ITEM i ';
-  Result := Query.ExecutarQuery(aSQL).FieldByName('COUNT').AsInteger;
+
 end;
 
 procedure TDItem.ObterTodos;
 begin
-  FInstance.ObterDTO.Data(Query.ExecutarQuery('SELECT * FROM ITEM'));
+
 end;
 
 procedure TDItem.PesquisarItem(aChave: String);

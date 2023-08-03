@@ -70,12 +70,12 @@ end;
 
 function TCItem.ObterQuantidade: Integer;
 begin
-Result := FModel.ObterQuantidade;
+
 end;
 
 procedure TCItem.ObterTodos;
 begin
- FModel.ObterTodos;
+
 end;
 
 procedure TCItem.PesquisarItem(aChave: String);

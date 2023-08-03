@@ -5,8 +5,8 @@
     <Transaction>2022/12/05 15:24:46.000.644,=C:\Users\darke\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
     <Transaction>2023/06/13 14:22:08.000.650,=C:\Users\darke\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
     <Transaction>2023/07/31 09:03:18.000.967,C:\Users\darke\Documents\Embarcadero\Studio\Projects\Project1.dproj=D:\Progamação\Projects\Extended\ItemStockV3.1\Project\API\ItemStockAPI.dproj</Transaction>
-    <Transaction>2023/07/31 09:07:56.000.258,=D:\Progamação\Projects\Extended\ItemStockV3.1\Project\API\src\DAO\conexao\ConstrutoraDuarte.DAO.Conexao.pas</Transaction>
     <Transaction>2023/07/31 09:07:56.000.287,=D:\Progamação\Projects\Extended\ItemStockV3.1\Project\API\src\DAO\conexao\ConstrutoraDuarte.DAO.Query.pas</Transaction>
+    <Transaction>2023/07/31 09:07:56.000.258,=D:\Progamação\Projects\Extended\ItemStockV3.1\Project\API\src\DAO\conexao\ConstrutoraDuarte.DAO.Conexao.pas</Transaction>
     <Transaction>2023/07/31 09:08:09.000.116,D:\Progamação\Projects\Extended\ItemStockV3.1\Project\API\src\DAO\conexao\ConstrutoraDuarte.DAO.Conexao.pas=D:\Progamação\Projects\Extended\ItemStockV3.1\Project\API\src\DAO\conexao\ItemStockAPI.DAO.Conexao.pas</Transaction>
     <Transaction>2023/07/31 09:08:17.000.981,D:\Progamação\Projects\Extended\ItemStockV3.1\Project\API\src\DAO\conexao\ConstrutoraDuarte.DAO.Query.pas=D:\Progamação\Projects\Extended\ItemStockV3.1\Project\API\src\DAO\conexao\ItemStockAPI.DAO.Query.pas</Transaction>
     <Transaction>2023/07/31 09:08:25.000.173,=D:\Progamação\Projects\Extended\ItemStockV3.1\Project\API\Unit1.pas</Transaction>
@@ -78,6 +78,8 @@
     <Transaction>2023/08/03 14:28:53.585,D:\Progamação\Projects\Extended\ItemStockV3.1\Project\API\src\Model\ItemStockAPI.Model.Item.pas=D:\Progamação\Projects\Extended\ItemStockV3.1\Project\API\Unit1.pas</Transaction>
     <Transaction>2023/08/03 14:29:31.266,=D:\Progamação\Projects\Extended\ItemStockV3.1\Project\API\Unit1.pas</Transaction>
     <Transaction>2023/08/03 14:31:03.250,D:\Progamação\Projects\Extended\ItemStockV3.1\Project\API\src\DAO\instrucoes\ItemStockAPI.DAO.Item.pas=D:\Progamação\Projects\Extended\ItemStockV3.1\Project\API\Unit1.pas</Transaction>
+    <Transaction>2023/08/03 15:15:58.672,=D:\Progamação\Projects\Extended\ItemStockV3.1\Project\API\Unit1.pas</Transaction>
+    <Transaction>2023/08/03 15:16:27.275,D:\Progamação\Projects\Extended\ItemStockV3.1\Project\API\src\Routes\ItemStockAPI.Routes.Item.pas=D:\Progamação\Projects\Extended\ItemStockV3.1\Project\API\Unit1.pas</Transaction>
   </Transactions>
 	<ProjectSortOrder AutoSort="0" SortType="0">
     <File Path="src"/>
@@ -125,5 +127,6 @@
     <File Path="src\Routes\ItemStockAPI.Routes.Container.pas"/>
     <File Path="src\Routes\ItemStockAPI.Routes.Categoria.pas"/>
     <File Path="src\Routes\ItemStockAPI.Routes.ItemFoto.pas"/>
+    <File Path="src\Routes\ItemStockAPI.Routes.Item.pas"/>
   </ProjectSortOrder>
 </BorlandProject>

@@ -71,12 +71,12 @@ end;
 
 function TMItem.ObterQuantidade: Integer;
 begin
- Result := FDAO.ObterQuantidade;
+
 end;
 
 procedure TMItem.ObterTodos;
 begin
-   FDAO.ObterTodos;
+
 end;
 
 procedure TMItem.PesquisarItem(aChave: String);

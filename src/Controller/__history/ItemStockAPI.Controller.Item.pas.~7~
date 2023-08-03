@@ -22,7 +22,6 @@ type
     procedure ObterDadosItem(aUUID: String);
     procedure ListarItemContainer(aUUIDContainer: String);
     procedure ObterTodos;
-    function ObterQuantidade : Integer;
   end;
 
 implementation
@@ -68,14 +67,9 @@ begin
   FModel.ObterDadosItem(aUUID);
 end;
 
-function TCItem.ObterQuantidade: Integer;
-begin
-Result := FModel.ObterQuantidade;
-end;
-
 procedure TCItem.ObterTodos;
 begin
- FModel.ObterTodos;
+
 end;
 
 procedure TCItem.PesquisarItem(aChave: String);

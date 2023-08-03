@@ -71,7 +71,7 @@ end;
 
 function TMItem.ObterQuantidade: Integer;
 begin
- Result := FDAO.ObterQuantidade;
+
 end;
 
 procedure TMItem.ObterTodos;

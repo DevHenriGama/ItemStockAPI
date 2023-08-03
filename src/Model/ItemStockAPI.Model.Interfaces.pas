@@ -60,6 +60,8 @@ type
     procedure PesquisarItem(aChave: String);
     procedure ObterDadosItem(aUUID: String);
     procedure ListarItemContainer(aUUIDContainer: String);
+    procedure ObterTodos;
+    function ObterQuantidade: Integer;
   end;
 
 implementation

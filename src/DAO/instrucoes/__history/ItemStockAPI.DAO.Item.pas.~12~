@@ -25,7 +25,7 @@ type
 implementation
 
 uses
-  ItemStockAPI.DAO.Query;
+  ItemStockAPI.DAO.Query, System.SysUtils;
 
 { TDItem }
 
@@ -59,27 +59,60 @@ end;
 
 procedure TDItem.Editar;
 begin
-
+  with Query.ObterQuery do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add('UPDATE ITEM SET NOME = :nome, ID_CONTAINER = :cont, ID_ESTADO = :est, DESCRICAO = :desc WHERE ID = :id');
+    ParamByName('nome').AsString := FInstance.ObterDTO.Nome;
+    ParamByName('cont').AsInteger := FInstance.ObterDTO.IDContainer;
+    ParamByName('est').AsInteger := FInstance.ObterDTO.IDEstado;
+    ParamByName('desc').AsString := FInstance.ObterDTO.Descricao;
+    ParamByName('id').AsInteger := FInstance.ObterDTO.ID;
+    ExecSQL;
+  end;
 end;
 
 procedure TDItem.ListarItemContainer(aUUIDContainer: String);
+var
+  aSQL: String;
 begin
+  aSQL := 'SELECT i.ID , i.NOME ,i.ID_CONTAINER ,i.ID_ESTADO ,i.DESCRICAO , i.UUID'
+    + ' FROM ITEM i' + ' JOIN CONTAINER c ON i.ID_CONTAINER = c.ID' +
+    ' WHERE c.UUID  = ' + QuotedStr(aUUIDContainer);
 
+  FInstance.ObterDTO.Data(Query.ExecutarQuery(aSQL));
 end;
 
 procedure TDItem.ObterDadosItem(aUUID: String);
+var
+  aSQL: String;
 begin
+  aSQL := 'SELECT * FROM ITEM WHERE UUID = ' + QuotedStr(aUUID);
 
+  FInstance.ObterDTO.Data(Query.ExecutarQuery(aSQL));
 end;
 
 procedure TDItem.PesquisarItem(aChave: String);
+var
+  aSQL: String;
 begin
+  aSQL := 'SELECT * FROM ITEM i' + ' WHERE i.NOME  LIKE ' +
+    QuotedStr('%' + aChave + '%');
 
+  FInstance.ObterDTO.Data(Query.ExecutarQuery(aSQL));
 end;
 
 procedure TDItem.Remover;
 begin
-
+  with Query.ObterQuery do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add('DELETE FROM ITEM WHERE ID = :id');
+    ParamByName('id').AsInteger := FInstance.ObterDTO.ID;
+    ExecSQL;
+  end;
 end;
 
 end.
