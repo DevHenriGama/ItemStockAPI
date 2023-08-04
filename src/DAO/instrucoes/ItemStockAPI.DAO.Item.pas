@@ -27,7 +27,7 @@ type
 implementation
 
 uses
-  ItemStockAPI.DAO.Query, System.SysUtils;
+  ItemStockAPI.DAO.Query, System.SysUtils, ItemStockAPI.Model.PublicID;
 
 { TDItem }
 
@@ -42,7 +42,7 @@ begin
     ParamByName('cont').AsInteger := FInstance.ObterDTO.IDContainer;
     ParamByName('est').AsInteger := FInstance.ObterDTO.IDEstado;
     ParamByName('desc').AsString := FInstance.ObterDTO.Descricao;
-    ParamByName('uid').AsString := FInstance.ObterDTO.UUID;
+    ParamByName('uid').AsString := TPublicID.New.NovaChave(FInstance.ObterDTO.Nome);
     ExecSQL;
   end;
 end;

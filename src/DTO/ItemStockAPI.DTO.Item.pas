@@ -82,6 +82,7 @@ begin
     TryGetValue<Integer>('id', FID);
     TryGetValue<Integer>('id_container', FIDContainer);
     TryGetValue<Integer>('id_estado', FIDEstado);
+    TryGetValue<String>('descricao', FDescricao);
     TryGetValue<String>('nome', FNome);
     TryGetValue<String>('uuid', FUUID);
   end;
@@ -89,7 +90,7 @@ end;
 
 destructor TItemDTO.Destroy;
 begin
-  FData.Free;
+
   inherited;
 end;
 
