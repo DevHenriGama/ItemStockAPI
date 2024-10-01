@@ -1,0 +1,249 @@
+unit ItemStockAPI.DAO.Item;
+
+interface
+
+uses
+  ItemStockAPI.Model.Item,
+  ItemStockAPI.DAO.Interfaces;
+
+type
+  TDItem = class(TInterfacedObject, IDItem)
+  private
+    FInstance: TMItem;
+    Query: IQuery;
+  public
+    constructor Create(aObject: TMItem);
+    destructor Destroy; override;
+    procedure Adicionar;
+    procedure Remover;
+    procedure Editar;
+    procedure PesquisarItem(aChave: String);
+    procedure ObterDadosItem(aUUID: String);
+    procedure ListarItemContainer(aUUIDContainer: String);
+    procedure BuscasAvancadas(aJSON: String);
+    procedure ObterTodos;
+    function ObterQuantidade: Integer;
+  end;
+
+implementation
+
+uses
+  ItemStockAPI.DAO.Query, System.SysUtils, ItemStockAPI.Model.PublicID,
+  System.JSON;
+
+{ TDItem }
+
+procedure TDItem.Adicionar;
+var
+  aUUID: String;
+begin
+  aUUID := TPublicID.New.NovaChave(FInstance.ObterDTO.Nome);
+
+  with Query.ObterQuery do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add('INSERT INTO ITEM (NOME, ID_CONTAINER, ID_ESTADO, DESCRICAO, UUID, ID_CATEGORIA) VALUES (:nome, :cont, :est, :desc, :uid, :idCat)');
+    ParamByName('nome').AsString := FInstance.ObterDTO.Nome;
+    ParamByName('cont').AsInteger := FInstance.ObterDTO.IDContainer;
+    ParamByName('est').AsInteger := FInstance.ObterDTO.IDEstado;
+    ParamByName('desc').AsString := FInstance.ObterDTO.Descricao;
+    ParamByName('uid').AsString := aUUID;
+    ParamByName('idCat').AsInteger := FInstance.ObterDTO.IDCategoria;
+    ExecSQL;
+  end;
+
+  FInstance.ObterDTO.UUID(aUUID);
+end;
+
+procedure TDItem.BuscasAvancadas(aJSON: String);
+var
+  aSQL: String;
+  aModificado, FAND: Boolean;
+  FNome, FDescricao: String;
+  FContainer, FCategoria, FEstado: Integer;
+
+  function _AND: String;
+  begin
+    if FAND then
+      Result := ' AND'
+    else
+      Result := '';
+  end;
+
+  procedure SetAND(aValue: Boolean);
+  begin
+    if aValue then
+      FAND := True;
+  end;
+
+  procedure SetValorAlterado(aValor: Boolean);
+  begin
+    if aValor then
+      aModificado := True;
+  end;
+
+  procedure Deserializar;
+  var
+    JSON: TJSONOBject;
+  begin
+    try
+      JSON := TJSONOBject.ParseJSONValue(aJSON) as TJSONOBject;
+      with JSON do
+      begin
+        SetValorAlterado(TryGetValue<String>('nome', FNome));
+        SetValorAlterado(TryGetValue<String>('descricao', FDescricao));
+        SetValorAlterado(TryGetValue<Integer>('container', FContainer));
+        SetValorAlterado(TryGetValue<Integer>('categoria', FCategoria));
+        SetValorAlterado(TryGetValue<Integer>('estado', FEstado));
+      end;
+    finally
+      JSON.Free;
+    end;
+
+  end;
+
+begin
+  aSQL := 'SELECT i.NOME ,i.UUID, c.CATEGORIA ,c.COR, c2.NUMERO, e.ESTADO ,i.ID_CATEGORIA'
+    + ' FROM ITEM i' + ' JOIN CATEGORIA c ON c.ID = i.ID_CATEGORIA' +
+    ' JOIN CONTAINER c2 ON c2.ID  = i.ID_CONTAINER' +
+    ' JOIN ESTADO e ON E.ID  = i.ID_ESTADO';
+
+  Deserializar;
+
+  if aModificado then
+    aSQL := aSQL + ' WHERE';
+
+  if NOT FNome.IsEmpty then
+  begin
+    aSQL := aSQL + ' i.NOME LIKE' + QuotedStr('%' + FNome + '%');
+    SetAND(True);
+  end;
+
+  if not FDescricao.IsEmpty then
+  begin
+    aSQL := aSQL + _AND + ' i.DESCRICAO LIKE ' +
+      QuotedStr('%' + FDescricao + '%');
+    SetAND(True);
+  end;
+
+  if FCategoria > 0 then
+  begin
+    aSQL := aSQL + _AND + ' i.ID_CATEGORIA = ' + IntToStr(FCategoria);
+    SetAND(True);
+  end;
+
+  if FEstado > 0 then
+  begin
+    aSQL := aSQL + _AND + ' i.ID_ESTADO = ' + IntToStr(FEstado);
+    SetAND(True);
+  end;
+
+  if FContainer > 0 then
+  begin
+    aSQL := aSQL + _AND + ' i.ID_CONTAINER = ' + IntToStr(FContainer);
+    SetAND(True);
+  end;
+
+  if aModificado then
+    FInstance.ObterDTO.Data(Query.ExecutarQuery(aSQL))
+  else
+    ObterTodos;
+end;
+
+constructor TDItem.Create(aObject: TMItem);
+begin
+  FInstance := aObject;
+  Query := TQuery.Create;
+end;
+
+destructor TDItem.Destroy;
+begin
+
+  inherited;
+end;
+
+procedure TDItem.Editar;
+begin
+  with Query.ObterQuery do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add('UPDATE ITEM SET NOME = :nome, ID_CONTAINER = :cont, ID_ESTADO = :est, DESCRICAO = :desc , ID_CATEGORIA = :idCat WHERE ID = :id');
+    ParamByName('nome').AsString := FInstance.ObterDTO.Nome;
+    ParamByName('cont').AsInteger := FInstance.ObterDTO.IDContainer;
+    ParamByName('est').AsInteger := FInstance.ObterDTO.IDEstado;
+    ParamByName('desc').AsString := FInstance.ObterDTO.Descricao;
+    ParamByName('id').AsInteger := FInstance.ObterDTO.ID;
+    ParamByName('idCat').AsInteger := FInstance.ObterDTO.IDCategoria;
+    ExecSQL;
+  end;
+end;
+
+procedure TDItem.ListarItemContainer(aUUIDContainer: String);
+var
+  aSQL: String;
+begin
+  aSQL := 'SELECT i.ID , i.NOME ,i.ID_CONTAINER ,i.ID_ESTADO ,i.DESCRICAO , i.UUID , i.ID_CATEGORIA, c1.CATEGORIA'
+    + ' FROM ITEM i' + ' JOIN CONTAINER c ON i.ID_CONTAINER = c.ID' +
+    ' JOIN CATEGORIA c1 ON c1.ID = i.ID_CONTAINER' + ' WHERE c.UUID  = ' +
+    QuotedStr(aUUIDContainer);
+
+  FInstance.ObterDTO.Data(Query.ExecutarQuery(aSQL));
+end;
+
+procedure TDItem.ObterDadosItem(aUUID: String);
+var
+  aSQL: String;
+begin
+  aSQL := 'SELECT * FROM ITEM WHERE UUID = ' + QuotedStr(aUUID);
+
+  FInstance.ObterDTO.Data(Query.ExecutarQuery(aSQL));
+end;
+
+function TDItem.ObterQuantidade: Integer;
+var
+  aSQL: String;
+begin
+  aSQL := 'SELECT COUNT(i.ID) FROM ITEM i ';
+  Result := Query.ExecutarQuery(aSQL).FieldByName('COUNT').AsInteger;
+end;
+
+procedure TDItem.ObterTodos;
+var
+  aSQL: String;
+begin
+  aSQL := 'SELECT i.NOME ,i.UUID, c.CATEGORIA ,c.COR, c2.NUMERO, e.ESTADO ,i.ID_CATEGORIA'
+    + ' FROM ITEM i' + ' JOIN CATEGORIA c ON c.ID = i.ID_CATEGORIA' +
+    ' JOIN CONTAINER c2 ON c2.ID  = i.ID_CONTAINER' +
+    ' JOIN ESTADO e ON E.ID  = i.ID_ESTADO';
+
+  FInstance.ObterDTO.Data(Query.ExecutarQuery(aSQL));
+end;
+
+procedure TDItem.PesquisarItem(aChave: String);
+var
+  aSQL: String;
+begin
+  aSQL := 'SELECT i.NOME ,i.UUID, c.CATEGORIA ,c.COR, c2.NUMERO, e.ESTADO ,i.ID_CATEGORIA'
+    + ' FROM ITEM i' + ' JOIN CATEGORIA c ON c.ID = i.ID_CATEGORIA' +
+    ' JOIN CONTAINER c2 ON c2.ID  = i.ID_CONTAINER' +
+    ' JOIN ESTADO e ON E.ID  = i.ID_ESTADO' + ' WHERE i.NOME LIKE ' +
+    QuotedStr('%' + aChave + '%');
+
+  FInstance.ObterDTO.Data(Query.ExecutarQuery(aSQL));
+end;
+
+procedure TDItem.Remover;
+begin
+  with Query.ObterQuery do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add('DELETE FROM ITEM WHERE ID = :id');
+    ParamByName('id').AsInteger := FInstance.ObterDTO.ID;
+    ExecSQL;
+  end;
+end;
+
+end.

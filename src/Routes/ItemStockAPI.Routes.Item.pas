@@ -44,7 +44,7 @@ begin
   try
     TCItem.New(aDTO.Deserialize(aReq.Body)).Adicionar;
 
-    aRes.Status(201);
+    aRes.Status(201).Send('{"uuid":"' + aDTO.UUID + '"}');
   except
     aRes.Status(500);
   end;
@@ -60,7 +60,7 @@ begin
 
     aRes.Status(200);
   except
-   aRes.Status(500);
+    aRes.Status(500);
   end;
 end;
 
@@ -70,11 +70,11 @@ var
 begin
   aDTO := TITemDTO.Create;
   try
-   TCItem.New(aDTO).ObterDadosItem(aReq.Params.Field('uuid').AsString);
+    TCItem.New(aDTO).ObterDadosItem(aReq.Params.Field('uuid').AsString);
 
-   aRes.Send<TJSONObject>(aDTO.Data.ToJSONObject).Status(200);
+    aRes.Send<TJSONObject>(aDTO.Data.ToJSONObject).Status(200);
   except
-   aRes.Status(500);
+    aRes.Status(500);
   end;
 end;
 
@@ -84,7 +84,7 @@ var
 begin
   aDTO := TITemDTO.Create;
   try
-    TCItem.New(aDTO).PesquisarItem(aReq.Params.Field('key').AsString);
+    TCItem.New(aDTO).PesquisarItem(aReq.Query.Field('value').AsString);
 
     aRes.Send<TJSONArray>(aDTO.Data.ToJSONArray).Status(200);
   except
@@ -98,12 +98,12 @@ var
 begin
   aDTO := TITemDTO.Create;
   try
-   TCItem.New(aDTO).ObterTodos;
+    TCItem.New(aDTO).ObterTodos;
 
-   aRes.Send<TJSONArray>(aDTO.Data.ToJSONArray).Status(200);
+    aRes.Send<TJSONArray>(aDTO.Data.ToJSONArray).Status(200);
 
   except
-   aRes.Status(500);
+    aRes.Status(500);
   end;
 end;
 
@@ -113,11 +113,11 @@ var
 begin
   aDTO := TITemDTO.Create;
   try
-   TCItem.New(aDTO).ListarItemContainer(aReq.Params.Field('uuid').AsString);
+    TCItem.New(aDTO).ListarItemContainer(aReq.Params.Field('uuid').AsString);
 
-   aRes.Send<TJSONArray>(aDTO.Data.ToJSONArray).Status(200);
+    aRes.Send<TJSONArray>(aDTO.Data.ToJSONArray).Status(200);
   except
-   aRes.Status(500);
+    aRes.Status(500);
   end;
 end;
 
@@ -127,9 +127,24 @@ var
 begin
   aDTO := TITemDTO.Create;
   try
-   aRes.Send('{"quantidade": '+ IntToStr(TCItem.New(nil).ObterQuantidade)+'}').Status(200);
+    aRes.Send('{"quantidade": ' + IntToStr(TCItem.New(nil).ObterQuantidade) +
+      '}').Status(200);
   except
-   aRes.Status(500);
+    aRes.Status(500);
+  end;
+end;
+
+procedure onBuscaAvancada(aReq: THorseRequest; aRes: THorseResponse);
+var
+  aDTO: IItemDTO;
+begin
+  aDTO := TITemDTO.Create;
+  try
+    TCItem.New(aDTO).BuscasAvancadas(aReq.Body);
+
+    aRes.Send<TJSONArray>(aDTO.Data.ToJSONArray);
+  except
+    aRes.Status(500);
   end;
 end;
 
@@ -137,8 +152,9 @@ class procedure TItemRotas.Routes;
 begin
   Thorse.Group.Prefix('/item').Post('', OnAdicionar).Put('', OnEditar)
     .Delete('/:id', OnRemover).Get('/:uuid', OnObterDados)
-    .Get('/buscar/:key', OnPesquisar).Get('', OnObterTodos)
-    .Get('/container/:uuid', OnItemContainer).Get('/quantidade', onQuantidade);
+    .Get('/buscar', OnPesquisar).Get('', OnObterTodos).Get('/container/:uuid',
+    OnItemContainer).Get('/quantidade', onQuantidade).Post('/busca-avancada',
+    onBuscaAvancada);
 end;
 
 end.

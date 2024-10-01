@@ -17,6 +17,7 @@ type
     procedure Adicionar;
     procedure Remover;
     procedure ObterFotosItem(aUUIDItem: String);
+    function ObterFotoPrincipal(aUUID : String) : String;
   end;
 
 implementation
@@ -45,6 +46,11 @@ end;
 class function TCItemFoto.New(aObject: IItemFotoDTO): ICItemFoto;
 begin
   Result := TCItemFoto.Create(aObject);
+end;
+
+function TCItemFoto.ObterFotoPrincipal(aUUID: String): String;
+begin
+Result := FModel.ObterFotoPrincipal(aUUID);
 end;
 
 procedure TCItemFoto.ObterFotosItem(aUUIDItem: String);

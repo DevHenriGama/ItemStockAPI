@@ -20,6 +20,8 @@ type
     function IDEstado: Integer; overload;
     function Descricao(aDescricao: String): IItemDTO; overload;
     function Descricao: String; overload;
+    function IDCategoria(aID: Integer): IItemDTO; overload;
+    function IDCategoria: Integer; overload;
     function Data(aDescricao: TDataSet): IItemDTO; overload;
     function Data: TDataSet; overload;
     function Deserialize(aJSON: String): IItemDTO;

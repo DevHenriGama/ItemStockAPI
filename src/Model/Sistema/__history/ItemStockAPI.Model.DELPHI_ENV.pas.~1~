@@ -1,0 +1,24 @@
+unit ItemStockAPI.Model.DELPHI_ENV;
+
+interface
+
+ type
+  DELPHI_ENV = class
+    private
+      const isProduction : Boolean = False;
+    public
+
+   class function _URL_IMG : string;
+
+  end;
+
+implementation
+
+{ DELPHI_ENV }
+
+class function DELPHI_ENV._URL_IMG: string;
+begin
+
+end;
+
+end.

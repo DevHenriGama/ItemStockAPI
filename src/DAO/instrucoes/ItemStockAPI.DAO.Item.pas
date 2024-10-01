@@ -20,6 +20,7 @@ type
     procedure PesquisarItem(aChave: String);
     procedure ObterDadosItem(aUUID: String);
     procedure ListarItemContainer(aUUIDContainer: String);
+    procedure BuscasAvancadas(aJSON: String);
     procedure ObterTodos;
     function ObterQuantidade: Integer;
   end;
@@ -27,24 +28,93 @@ type
 implementation
 
 uses
-  ItemStockAPI.DAO.Query, System.SysUtils, ItemStockAPI.Model.PublicID;
+  ItemStockAPI.DAO.Query, System.SysUtils, ItemStockAPI.Model.PublicID,
+  System.JSON, System.Classes;
 
 { TDItem }
 
 procedure TDItem.Adicionar;
+var
+  aUUID: String;
 begin
+  aUUID := TPublicID.New.NovaChave(FInstance.ObterDTO.Nome);
+
   with Query.ObterQuery do
   begin
     Close;
     SQL.Clear;
-    SQL.Add('INSERT INTO ITEM (NOME, ID_CONTAINER, ID_ESTADO, DESCRICAO, UUID) VALUES (:nome, :cont, :est, :desc, :uid)');
+    SQL.Add('INSERT INTO ITEM (NOME, ID_CONTAINER, ID_ESTADO, DESCRICAO, UUID, ID_CATEGORIA) VALUES (:nome, :cont, :est, :desc, :uid, :idCat)');
     ParamByName('nome').AsString := FInstance.ObterDTO.Nome;
     ParamByName('cont').AsInteger := FInstance.ObterDTO.IDContainer;
     ParamByName('est').AsInteger := FInstance.ObterDTO.IDEstado;
     ParamByName('desc').AsString := FInstance.ObterDTO.Descricao;
-    ParamByName('uid').AsString := TPublicID.New.NovaChave(FInstance.ObterDTO.Nome);
+    ParamByName('uid').AsString := aUUID;
+    ParamByName('idCat').AsInteger := FInstance.ObterDTO.IDCategoria;
     ExecSQL;
   end;
+
+  FInstance.ObterDTO.UUID(aUUID);
+end;
+
+procedure TDItem.BuscasAvancadas(aJSON: String);
+var
+  aSQL: String;
+  FCondicao: TStringList;
+  FNome, FDescricao: String;
+  FContainer, FCategoria, FEstado: Integer;
+
+  procedure Deserializar;
+  var
+    JSON: TJSONOBject;
+  begin
+    JSON := TJSONOBject.ParseJSONValue(aJSON) as TJSONOBject;
+    with JSON do
+    begin
+      TryGetValue<String>('nome', FNome);
+      TryGetValue<String>('descricao', FDescricao);
+      TryGetValue<Integer>('container', FContainer);
+      TryGetValue<Integer>('categoria', FCategoria);
+      TryGetValue<Integer>('estado', FEstado);
+    end;
+    JSON.Free;
+  end;
+
+  procedure AdicionarCondicao(aCondicao: String);
+  begin
+    if FCondicao.Count > 0 then
+      FCondicao.Add('AND ' + aCondicao)
+    else
+      FCondicao.Add('WHERE ' + aCondicao);
+  end;
+
+begin
+  FCondicao := TStringList.Create;
+  Deserializar;
+
+  if NOT FNome.IsEmpty then
+    AdicionarCondicao('i.NOME LIKE' + QuotedStr('%' + FNome + '%'));
+
+  if not FDescricao.IsEmpty then
+    AdicionarCondicao('i.DESCRICAO LIKE ' + QuotedStr('%' + FDescricao + '%'));
+
+  if FCategoria > 0 then
+  AdicionarCondicao('i.ID_CATEGORIA = ' + IntToStr(FCategoria));
+
+  if FEstado > 0 then
+    AdicionarCondicao('i.ID_ESTADO = ' + IntToStr(FEstado));
+
+  if FContainer > 0 then
+    AdicionarCondicao('i.ID_CONTAINER = ' + IntToStr(FContainer));
+
+  aSQL := 'SELECT i.NOME ,i.UUID, c.CATEGORIA ,c.COR, c2.NUMERO, e.ESTADO ,i.ID_CATEGORIA'
+    + ' FROM ITEM i' + ' JOIN CATEGORIA c ON c.ID = i.ID_CATEGORIA' +
+    ' JOIN CONTAINER c2 ON c2.ID  = i.ID_CONTAINER' +
+    ' JOIN ESTADO e ON E.ID  = i.ID_ESTADO ' + FCondicao.Text;
+
+  FInstance.ObterDTO.Data(Query.ExecutarQuery(aSQL));
+
+  FCondicao.Free;
+
 end;
 
 constructor TDItem.Create(aObject: TMItem);
@@ -65,12 +135,13 @@ begin
   begin
     Close;
     SQL.Clear;
-    SQL.Add('UPDATE ITEM SET NOME = :nome, ID_CONTAINER = :cont, ID_ESTADO = :est, DESCRICAO = :desc WHERE ID = :id');
+    SQL.Add('UPDATE ITEM SET NOME = :nome, ID_CONTAINER = :cont, ID_ESTADO = :est, DESCRICAO = :desc , ID_CATEGORIA = :idCat WHERE ID = :id');
     ParamByName('nome').AsString := FInstance.ObterDTO.Nome;
     ParamByName('cont').AsInteger := FInstance.ObterDTO.IDContainer;
     ParamByName('est').AsInteger := FInstance.ObterDTO.IDEstado;
     ParamByName('desc').AsString := FInstance.ObterDTO.Descricao;
     ParamByName('id').AsInteger := FInstance.ObterDTO.ID;
+    ParamByName('idCat').AsInteger := FInstance.ObterDTO.IDCategoria;
     ExecSQL;
   end;
 end;
@@ -79,9 +150,10 @@ procedure TDItem.ListarItemContainer(aUUIDContainer: String);
 var
   aSQL: String;
 begin
-  aSQL := 'SELECT i.ID , i.NOME ,i.ID_CONTAINER ,i.ID_ESTADO ,i.DESCRICAO , i.UUID'
+  aSQL := 'SELECT i.ID , i.NOME ,i.ID_CONTAINER ,i.ID_ESTADO ,i.DESCRICAO , i.UUID , i.ID_CATEGORIA, c1.CATEGORIA'
     + ' FROM ITEM i' + ' JOIN CONTAINER c ON i.ID_CONTAINER = c.ID' +
-    ' WHERE c.UUID  = ' + QuotedStr(aUUIDContainer);
+    ' JOIN CATEGORIA c1 ON c1.ID = i.ID_CONTAINER' + ' WHERE c.UUID  = ' +
+    QuotedStr(aUUIDContainer);
 
   FInstance.ObterDTO.Data(Query.ExecutarQuery(aSQL));
 end;
@@ -104,15 +176,25 @@ begin
 end;
 
 procedure TDItem.ObterTodos;
+var
+  aSQL: String;
 begin
-  FInstance.ObterDTO.Data(Query.ExecutarQuery('SELECT * FROM ITEM'));
+  aSQL := 'SELECT i.NOME ,i.UUID, c.CATEGORIA ,c.COR, c2.NUMERO, e.ESTADO ,i.ID_CATEGORIA'
+    + ' FROM ITEM i' + ' JOIN CATEGORIA c ON c.ID = i.ID_CATEGORIA' +
+    ' JOIN CONTAINER c2 ON c2.ID  = i.ID_CONTAINER' +
+    ' JOIN ESTADO e ON E.ID  = i.ID_ESTADO';
+
+  FInstance.ObterDTO.Data(Query.ExecutarQuery(aSQL));
 end;
 
 procedure TDItem.PesquisarItem(aChave: String);
 var
   aSQL: String;
 begin
-  aSQL := 'SELECT * FROM ITEM i' + ' WHERE i.NOME  LIKE ' +
+  aSQL := 'SELECT i.NOME ,i.UUID, c.CATEGORIA ,c.COR, c2.NUMERO, e.ESTADO ,i.ID_CATEGORIA'
+    + ' FROM ITEM i' + ' JOIN CATEGORIA c ON c.ID = i.ID_CATEGORIA' +
+    ' JOIN CONTAINER c2 ON c2.ID  = i.ID_CONTAINER' +
+    ' JOIN ESTADO e ON E.ID  = i.ID_ESTADO' + ' WHERE i.NOME LIKE ' +
     QuotedStr('%' + aChave + '%');
 
   FInstance.ObterDTO.Data(Query.ExecutarQuery(aSQL));

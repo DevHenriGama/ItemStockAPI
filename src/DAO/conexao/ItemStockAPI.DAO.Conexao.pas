@@ -57,8 +57,8 @@ end;
 
 function TConexao.DatabasePath: String;
 begin
-//Result := ExtractFileDir(ParamStr(0)) + '/database/DATABASE.FDB';
-Result := 'D:\Progamação\Projects\Extended\ItemStockV3.1\Project\API\src\DAO\database\DATABASE.FDB';
+Result := ExtractFileDir(ParamStr(0)) + '/database/DATABASE.FDB';
+//Result := 'D:\Progamação\Projects\Extended\ItemStockV3.1\Project\API\src\DAO\database\DATABASE.FDB';
 end;
 
 destructor TConexao.Destroy;

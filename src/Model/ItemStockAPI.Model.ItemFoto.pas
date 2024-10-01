@@ -18,6 +18,7 @@ type
     procedure Remover;
     procedure ObterFotosItem(aUUIDItem: String);
     function ObterDTO: IItemFotoDTO;
+    function ObterFotoPrincipal(aUUID : String) : String;
   end;
 
 implementation
@@ -48,6 +49,11 @@ end;
 function TMItemFoto.ObterDTO: IItemFotoDTO;
 begin
   Result := FInstance;
+end;
+
+function TMItemFoto.ObterFotoPrincipal(aUUID: String): String;
+begin
+Result := FDAO.ObterFotoPrincipal(aUUID);
 end;
 
 procedure TMItemFoto.ObterFotosItem(aUUIDItem: String);

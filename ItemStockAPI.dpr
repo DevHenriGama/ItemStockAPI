@@ -32,10 +32,6 @@ uses
   ItemStockAPI.DAO.Container in 'src\DAO\instrucoes\ItemStockAPI.DAO.Container.pas',
   ItemStockAPI.Model.PublicID in 'src\Model\Sistema\ItemStockAPI.Model.PublicID.pas',
   ItemStockAPI.Routes.Container in 'src\Routes\ItemStockAPI.Routes.Container.pas',
-  ItemStockAPI.DTO.ItemCategoria in 'src\DTO\ItemStockAPI.DTO.ItemCategoria.pas',
-  ItemStockAPI.Controller.ItemCategoria in 'src\Controller\ItemStockAPI.Controller.ItemCategoria.pas',
-  ItemStockAPI.Model.ItemCategoria in 'src\Model\ItemStockAPI.Model.ItemCategoria.pas',
-  ItemStockAPI.DAO.ItemCategoria in 'src\DAO\instrucoes\ItemStockAPI.DAO.ItemCategoria.pas',
   ItemStockAPI.Controller.Categoria in 'src\Controller\ItemStockAPI.Controller.Categoria.pas',
   ItemStockAPI.Model.Categoria in 'src\Model\ItemStockAPI.Model.Categoria.pas',
   ItemStockAPI.DAO.Categoria in 'src\DAO\instrucoes\ItemStockAPI.DAO.Categoria.pas',
@@ -48,7 +44,9 @@ uses
   ItemStockAPI.Controller.Item in 'src\Controller\ItemStockAPI.Controller.Item.pas',
   ItemStockAPI.Model.Item in 'src\Model\ItemStockAPI.Model.Item.pas',
   ItemStockAPI.DAO.Item in 'src\DAO\instrucoes\ItemStockAPI.DAO.Item.pas',
-  ItemStockAPI.Routes.Item in 'src\Routes\ItemStockAPI.Routes.Item.pas';
+  ItemStockAPI.Routes.Item in 'src\Routes\ItemStockAPI.Routes.Item.pas',
+  ItemStockAPI.Model.DELPHI_ENV in 'src\Model\Sistema\ItemStockAPI.Model.DELPHI_ENV.pas',
+  ItemStockAPI.Sistema in 'src\Routes\ItemStockAPI.Sistema.pas';
 
 begin
 
@@ -63,6 +61,7 @@ begin
   TCategoriaRotas.Routes;
   TItemFotoRota.Routes;
   TItemRotas.Routes;
+  TRotasSistema.Routes;
 
   THorse.Listen(6564,procedure
   begin

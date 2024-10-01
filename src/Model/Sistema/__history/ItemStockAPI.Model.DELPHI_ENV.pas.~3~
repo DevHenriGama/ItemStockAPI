@@ -1,0 +1,49 @@
+unit ItemStockAPI.Model.DELPHI_ENV;
+
+interface
+
+type
+  DELPHI_ENV = class
+  private const
+    isProduction: Boolean = False;
+
+  const
+    _SERVER_WIN: String = '';
+
+  const
+    _SERVER_LX: String = '';
+
+  const
+    _IMG_PROD: String = '';
+
+  const
+    _IMG_LOCAL: String = '';
+  public
+
+    class function _URL_IMG: string;
+    class function _PATH_SERVER_FILE: String;
+
+  end;
+
+implementation
+
+{ DELPHI_ENV }
+
+class function DELPHI_ENV._PATH_SERVER_FILE: String;
+begin
+  if isProduction then
+  begin
+
+  end
+  else
+  begin
+
+  end;
+end;
+
+class function DELPHI_ENV._URL_IMG: string;
+begin
+
+end;
+
+end.

@@ -14,6 +14,7 @@ type
     FIDContainer: Integer;
     FIDEstado: Integer;
     FDescricao: String;
+    FIDCategoria: Integer;
     FData: TDataSet;
   public
     class function New: IItemDTO;
@@ -29,6 +30,8 @@ type
     function IDContainer: Integer; overload;
     function IDEstado(aID: Integer): IItemDTO; overload;
     function IDEstado: Integer; overload;
+    function IDCategoria(aID: Integer): IItemDTO; overload;
+    function IDCategoria: Integer; overload;
     function Descricao(aDescricao: String): IItemDTO; overload;
     function Descricao: String; overload;
     function Data(aDescricao: TDataSet): IItemDTO; overload;
@@ -83,6 +86,7 @@ begin
     TryGetValue<Integer>('id_container', FIDContainer);
     TryGetValue<Integer>('id_estado', FIDEstado);
     TryGetValue<String>('descricao', FDescricao);
+    TryGetValue<Integer>('id_categoria',FIDCategoria);
     TryGetValue<String>('nome', FNome);
     TryGetValue<String>('uuid', FUUID);
   end;
@@ -109,6 +113,17 @@ function TItemDTO.IDContainer(aID: Integer): IItemDTO;
 begin
   Result := Self;
   FIDContainer := aID;
+end;
+
+function TItemDTO.IDCategoria: Integer;
+begin
+Result := FIDCategoria;
+end;
+
+function TItemDTO.IDCategoria(aID: Integer): IItemDTO;
+begin
+Result := Self;
+FIDCategoria := aID;
 end;
 
 function TItemDTO.IDContainer: Integer;

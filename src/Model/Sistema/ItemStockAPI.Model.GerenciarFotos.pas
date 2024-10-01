@@ -10,7 +10,6 @@ type
   TGerenciarFotos = class(TInterfacedObject, IGerenciarFotos)
   private
     FInstance: IItemFotoDTO;
-    const _DOMAIN : String = 'http://192.168.100.21/ItemStockAPI/img';
     function ServidorArquivos : String;
     function ValidarFoto(aNome : String) : Boolean;
     function GerarNome : String;
@@ -25,15 +24,13 @@ type
 implementation
 
 uses
-  System.SysUtils, System.Classes;
+  System.SysUtils, System.Classes, ItemStockAPI.Model.DELPHI_ENV;
 
 { TGerenciarFotos }
 
 function TGerenciarFotos.ServidorArquivos: String;
 begin
-//Result := ExtractFilePath(ParamStr(0)) + '/img/';
-
-Result := 'C:\Apache24\htdocs\ItemStockAPI\img\';
+Result := DELPHI_ENV._PATH_SERVER_FILE;
 end;
 
 constructor TGerenciarFotos.Create(aObject: IItemFotoDTO);
@@ -104,7 +101,7 @@ begin
     LPicture.Free;
   end;
 
-  FInstance.LinkFoto(_DOMAIN + aNome);
+  FInstance.LinkFoto(DELPHI_ENV._URL_IMG + aNome);
   FInstance.CaminhoArquivo(LDIR);
 
 end;

@@ -38,6 +38,7 @@ type
     procedure Adicionar;
     procedure Remover;
     procedure ObterFotosItem(aUUIDItem: String);
+    function ObterFotoPrincipal(aUUID: String): String;
   end;
 
   ICItem = interface
@@ -50,6 +51,7 @@ type
     procedure ListarItemContainer(aUUIDContainer: String);
     procedure ObterTodos;
     function ObterQuantidade: Integer;
+    procedure BuscasAvancadas(aJSON: String);
   end;
 
 implementation

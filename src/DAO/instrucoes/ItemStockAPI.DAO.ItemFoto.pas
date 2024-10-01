@@ -16,12 +16,13 @@ type
     procedure Adicionar;
     procedure Remover;
     procedure ObterFotosItem(aUUIDItem: String);
+    function ObterFotoPrincipal(aUUID : String) : String;
   end;
 
 implementation
 
 uses
-  ItemStockAPI.DAO.Query, System.SysUtils;
+  ItemStockAPI.DAO.Query, System.SysUtils, System.JSON;
 
 { TDItemFoto }
 
@@ -49,6 +50,35 @@ destructor TDItemFoto.Destroy;
 begin
 
   inherited;
+end;
+
+function TDItemFoto.ObterFotoPrincipal(aUUID: String): String;
+var aSQL : String; joB : TJSONObject;
+begin
+ aSQL := 'SELECT FIRST 1 if1.LINK'+
+         ' FROM ITEM_FOTO if1'+
+         ' JOIN ITEM i ON i.ID = IF1.ID_ITEM'+
+         ' WHERE i.UUID  = '+ QuotedStr(aUUID);
+
+  joB := TJSONObject.Create;
+
+  with Query.ObterQuery do begin
+    Close;
+    SQL.Clear;
+    sql.Add(aSQL);
+    Open;
+
+    if RecordCount > 0 then begin
+      joB.AddPair('LINK',FieldByName('LINK').AsString);
+      Result := joB.ToString;
+    end
+    else
+    begin
+      Result := 'Not Found';
+    end;
+
+  end;
+  joB.Free;
 end;
 
 procedure TDItemFoto.ObterFotosItem(aUUIDItem: String);

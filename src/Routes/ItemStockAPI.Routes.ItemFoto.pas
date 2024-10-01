@@ -17,7 +17,7 @@ uses
   ItemStockAPI.DTO.Interfaces,
   ItemStockAPI.DTO.ItemFoto,
   ItemStockAPI.Controller.ItemFoto,
-  System.JSON, System.Classes;
+  System.JSON, System.Classes, ItemStockAPI.Controller.Interfaces;
 
 { TItemFotoRota }
 
@@ -44,7 +44,8 @@ begin
   aDTO := TItemFotoDTO.Create;
 
   try
-    if aReq.ContentFields.Field('picture').AsStream <> nil then begin
+    if aReq.ContentFields.Field('picture').AsStream <> nil then
+    begin
       LStream := aReq.ContentFields.Field('picture').AsStream;
       aDTO.Stream(LStream);
     end;
@@ -72,10 +73,26 @@ begin
   end;
 end;
 
+procedure onPrincipal(aReq: THorseRequest; aRes: THorseResponse);
+var
+  LController: ICItemFoto;
+  aJSON: String;
+begin
+  LController := TCItemFoto.Create(nil);
+  try
+    aJSON := LController.ObterFotoPrincipal(aReq.Params.Field('uuid').AsString);
+
+
+    aRes.Send(aJSON).Status(200);
+  except
+    aRes.Status(500);
+  end;
+end;
+
 class procedure TItemFotoRota.Routes;
 begin
   THorse.Group.Prefix('/foto').Get('/:uuid', OnObterTodas).Post('', OnAdicionar)
-    .Delete('', OnRemover);
+    .Get('/principal/:uuid', onPrincipal).Delete('', OnRemover);
 end;
 
 end.

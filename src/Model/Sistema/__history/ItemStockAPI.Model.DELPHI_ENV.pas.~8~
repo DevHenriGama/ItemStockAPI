@@ -1,0 +1,38 @@
+unit ItemStockAPI.Model.DELPHI_ENV;
+
+interface
+
+type
+  DELPHI_ENV = class
+  private const
+    isProduction: Boolean = False;
+    const _SERVER_WIN: String = 'C:\Apache24\htdocs\ItemStockAPI\img';
+    const  _SERVER_LX: String = '/var/www/html/ItemStockAPI/img/';
+    const _IMG_PROD: String = 'http://192.168.100.87/ItemStockAPI/img/';
+    const _IMG_LOCAL: String = 'http://localhost/ItemStockAPI/img/';
+  public
+    class function _URL_IMG: string;
+    class function _PATH_SERVER_FILE: String;
+  end;
+
+implementation
+
+{ DELPHI_ENV }
+
+class function DELPHI_ENV._PATH_SERVER_FILE: String;
+begin
+   if isProduction then
+    Result := _SERVER_LX
+   else
+    Result := _SERVER_WIN;
+end;
+
+class function DELPHI_ENV._URL_IMG: string;
+begin
+    if isProduction then
+    Result := _IMG_PROD
+   else
+    Result := _IMG_LOCAL;
+end;
+
+end.

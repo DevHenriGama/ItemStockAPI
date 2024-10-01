@@ -23,6 +23,7 @@ type
     procedure ListarItemContainer(aUUIDContainer: String);
     procedure ObterTodos;
     function ObterQuantidade : Integer;
+    procedure BuscasAvancadas(aJSON: String);
   end;
 
 implementation
@@ -35,6 +36,11 @@ uses
 procedure TCItem.Adicionar;
 begin
   FModel.Adicionar;
+end;
+
+procedure TCItem.BuscasAvancadas(aJSON: String);
+begin
+FModel.BuscasAvancadas(aJSON);
 end;
 
 constructor TCItem.Create(aObject: IItemDTO);
