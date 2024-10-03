@@ -1,0 +1,7 @@
+name: ItemStockAPI
+
+services:
+  api:
+    build: .
+    ports:
+      - 6564:6564
